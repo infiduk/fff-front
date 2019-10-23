@@ -3,9 +3,17 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "bootstrap": "^4.3.1",
     "react": "^16.11.0",
+    "react-bootstrap": "^1.0.0-beta.14",
+    "react-confirm-alert": "^2.4.1",
     "react-dom": "^16.11.0",
-    "react-scripts": "3.2.0"
+    "react-router-dom": "^5.1.2",
+    "react-scripts": "3.2.0",
+    "resolve": "^1.12.0",
+    "ts-pnp": "^1.1.4",
+    "typescript": "^3.6.4",
+    "webpack": "^4.41.0"
   },
   "scripts": {
     "start": "react-scripts start",

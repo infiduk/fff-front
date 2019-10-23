@@ -1,25 +1,34 @@
 import React from 'react';
-import logo from './logo.svg';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
+
+import Game from './Game';
+import GameResult from './GameResult';
+
+import Main from './Main';
+
+import SignIn from './SignIn';
+import SignUp from './SignUp';
+
+import Navbar from './Navbar';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div>
+      <Navbar />
+        <Switch>
+          {/* 메인 */}
+          <Route exact path='/' component={Main} />
+          {/* 회원가입, 로그인 */}
+          <Route path='/signUp' component={SignUp} />
+          <Route path='/signIn' component={SignIn} />
+          {/* 게임, 게임 결과 */}
+          <Route path='/game' component={Game} />
+          <Route path='/gameResult' component={GameResult} />
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
