@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Form } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default class Game extends Component {
@@ -31,7 +31,7 @@ export default class Game extends Component {
                 <div className='row' style={{ margin: 25, alignItems: 'center', justifyContent: 'center' }}>
                     <div style={{ marginTop: 20, marginBottom: 20, marginRight: 20 }}>
                         <Button
-                            variant='outline-primary'
+                            variant='outline-warning'
                             size='lg'
                             href={'/gameResult'}
                             style={{ width: '30vw', height: '30vw', fontWeight: '900', fontSize: '1.5rem', alignItems: 'center', justifyContent: 'center', textAlign: 'center', display: 'table-cell', verticalAlign: 'middle' }}>
@@ -40,7 +40,7 @@ export default class Game extends Component {
                     </div>
                     <div style={{ marginTop: 20, marginBottom: 20, marginLeft: 20 }}>
                         <Button
-                            variant='outline-secondary'
+                            variant='outline-info'
                             size='lg'
                             href={'/gameResult'}
                             style={{ width: '30vw', height: '30vw', fontWeight: '900', fontSize: '1.5rem', alignItems: 'center', justifyContent: 'center', textAlign: 'center', display: 'table-cell', verticalAlign: 'middle' }}>

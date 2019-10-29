@@ -35,7 +35,7 @@ export default class SignIn extends Component {
                     alignItems: 'center'
                 }}>
                     <h3 style={{ marginTop: 30, textAlign: 'center' }}>로그인</h3>
-                    <Form style={{ padding: 25, marginTop: 10 }} onSubmit={this.handleSubmit}>
+                    <Form style={{ padding: 25, marginTop: 10, borderRadius: '10rem' }} onSubmit={this.handleSubmit}>
                         <Form.Group controlId='id'>
                             <Form.Label>ID</Form.Label>
                             <Form.Control type='id' size='lg' name='id' placeholder='ID' onChange={this.handleChange} />
@@ -44,8 +44,8 @@ export default class SignIn extends Component {
                             <Form.Label>PW</Form.Label>
                             <Form.Control type='password' size='lg' name='password' placeholder='Password' onChange={this.handleChange} />
                         </Form.Group>
-                        <Button variant='primary' type='submit' block
-                            style={{ marginTop: 50, padding: 10, alignSelf: 'center' }}>
+                        <Button type='submit' block
+                            style={{ marginTop: 50, padding: 10, alignSelf: 'center', backgroundColor: '#fd8a1f' }}>
                             로그인
                             </Button>
                     </Form>

@@ -73,8 +73,8 @@ export default class SignUp extends Component {
                             <Form.Label>이름</Form.Label>
                             <Form.Control type='text' name='name' size='lg' placeholder='이름을 입력하세요.' onChange={this.handleChange} />
                         </Form.Group>
-                        <Button variant='primary' type='submit' block
-                            style={{ marginTop: 50, padding: 10, alignSelf: 'center' }}>
+                        <Button type='submit' block
+                            style={{ marginTop: 50, padding: 10, alignSelf: 'center', backgroundColor: '#fd8a1f' }}>
                             회원가입
                             </Button>
                     </Form>

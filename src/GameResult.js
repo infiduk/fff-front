@@ -25,7 +25,7 @@ export default class GameResult extends Component {
                     </div>
                 </div>
                 <Form>
-                    <Button variant='primary' size='lg' style={{ marginTop: 25 }} onClick={this.handleGoBack} block>메인화면</Button>
+                    <Button variant='primary' size='lg' style={{ marginTop: 25, backgroundColor: '#ff9500' }} onClick={this.handleGoBack} block>메인화면</Button>
                 </Form>
             </div>
         );
