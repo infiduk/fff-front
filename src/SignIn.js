@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+import logo from './assets/qnq.jpg';
+
 export default class SignIn extends Component {
     constructor(props) {
         super(props);
@@ -11,9 +13,14 @@ export default class SignIn extends Component {
         };
     }
 
-    handleSubmit = async e => {
+    loginSubmit = async e => {
         e.preventDefault();
         window.location.assign('/');
+    };
+
+    signSubmit = async e => {
+        e.preventDefault();
+        window.location.assign('/signUp');
     };
 
     handleChange = (e) => {
@@ -22,34 +29,30 @@ export default class SignIn extends Component {
 
     render() {
         return (
-            <div style={{ marginTop: 25, padding: 25, flex: 1 }}>
-                <div style={{
-                    display: 'initial',
-                    marginTop: 20,
-                    marginBotom: 20,
-                    width: '60vw',
-                    height: '80%',
-                    backgroundColor: '#f1f1f1',
-                    justifyContent: 'center',
-                    alignSelf: 'center',
-                    alignItems: 'center'
-                }}>
-                    <h3 style={{ marginTop: 30, textAlign: 'center' }}>로그인</h3>
-                    <Form style={{ padding: 25, marginTop: 10, borderRadius: '10rem' }} onSubmit={this.handleSubmit}>
-                        <Form.Group controlId='id'>
-                            <Form.Label>ID</Form.Label>
-                            <Form.Control type='id' size='lg' name='id' placeholder='ID' onChange={this.handleChange} />
-                        </Form.Group>
-                        <Form.Group controlId='password'>
-                            <Form.Label>PW</Form.Label>
-                            <Form.Control type='password' size='lg' name='password' placeholder='Password' onChange={this.handleChange} />
-                        </Form.Group>
-                        <Button type='submit' block
-                            style={{ marginTop: 50, padding: 10, alignSelf: 'center', backgroundColor: '#fd8a1f' }}>
-                            로그인
-                            </Button>
-                    </Form>
-                </div>
+            <div class='text-center' style={{ marginTop: 25, padding: 10 }}>
+                <img
+                alt='QnQ'
+                src={logo}
+                class='img-fluid'
+                style={{ marginBottom: 15 }}
+                />
+                <Form style={{ padding: 25, marginTop: 10 }} onSubmit={this.loginSubmit}>
+                    <Form.Group controlId='Id'>
+                        <Form.Control type='id' size='lg' name='id' placeholder='example@abcd.com' style={{ borderColor: '#ff9500', borderRadius: 30 }} onChange={this.handleChange} />
+                    </Form.Group>
+                    <Form.Group controlId='Pw'>
+                        <Form.Control type='password' size='lg' name='pw' placeholder='******' style={{ borderColor: '#ff9500', borderRadius: 30 }} onChange={this.handleChange} />
+                    </Form.Group>
+                    <hr style={{ marginTop: 50 }} />
+                    <Button type='submit' block
+                        style={{ marginTop: 50, padding: 10, alignSelf: 'center', backgroundColor: '#fd8a1f', borderColor: '#ff9500', borderRadius: 30 }}>
+                        LOGIN
+                    </Button>
+                    <Button type='button' block
+                        style={{ marginTop: 20, padding: 10, alignSelf: 'center', backgroundColor: '#fff', borderColor: '#ff9500', borderRadius: 30, color: '#ff9500' }} onClick={this.signSubmit}>
+                        Sign Up
+                    </Button>
+                </Form>
             </div>
         )
     }
