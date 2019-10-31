@@ -15,22 +15,22 @@ export default class MyPage extends Component {
                 <div style={{ margin: 10, marginLeft: 20 }}>
                     <h4>참여한 문제</h4>
                     <ListGroup style={{ margin: 15 }}>
-                        <ListGroup.Item action href={'/game'}>
+                        <ListGroup.Item action href={'/gameResult'}>
                             <h5 style={{ color: '#ff9500', marginLeft: 5, marginRight: 5 }}>악동뮤지션 vs 방탄소년단</h5>
                         </ListGroup.Item>
-                        <ListGroup.Item action href={'/game'}>
+                        <ListGroup.Item action>
                             <h5 style={{ color: '#ff9500' }}>최한솔 vs 박찬형</h5>
                         </ListGroup.Item>
-                        <ListGroup.Item action href={'/game'}>
+                        <ListGroup.Item action>
                             <h5 style={{ color: '#ff9500' }}>짜장 vs 짬뽕</h5>
                         </ListGroup.Item>
-                        <ListGroup.Item action href={'/game'}>
+                        <ListGroup.Item action>
                             <h5 style={{ color: '#ff9500' }}>악동뮤지션 vs 방탄소년단</h5>
                         </ListGroup.Item>
-                        <ListGroup.Item action href={'/game'}>
+                        <ListGroup.Item action>
                             <h5 style={{ color: '#ff9500' }}>최한솔 vs 박찬형</h5>
                         </ListGroup.Item>
-                        <ListGroup.Item action href={'/game'}>
+                        <ListGroup.Item action>
                             <h5 style={{ color: '#ff9500' }}>짜장 vs 짬뽕</h5>
                         </ListGroup.Item>
                     </ListGroup>
