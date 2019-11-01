@@ -8,30 +8,30 @@ export default class MyPage extends Component {
             <div style={{ margin: 25, color: '#ff9500' }}>
                 <h3>바나프레소님</h3>
                 <h6 style={{ marginTop: 10, marginLeft: 10, color: '#000' }}>이메일@이메일.com</h6>
-                <div className='row' style={{ margin: 20 }}>
-                    <h4>보유 티켓</h4>
+                <div style={{ margin: 20 }}>
+                    <h5>보유 티켓</h5>
                     <h6 style={{ marginTop: 10, marginLeft: 10, color: '#000'}}>어쩌구저쩌구</h6>
                 </div>
-                <div style={{ margin: 10, marginLeft: 20 }}>
-                    <h4>참여한 문제</h4>
-                    <ListGroup style={{ margin: 15 }}>
-                        <ListGroup.Item action href={'/gameResult'}>
-                            <h5 style={{ color: '#ff9500', marginLeft: 5, marginRight: 5 }}>악동뮤지션 vs 방탄소년단</h5>
+                <div>
+                    <h5 style={{ marginLeft: 20 }}>참여한 문제</h5>
+                    <ListGroup style={{ marginTop: 15, marginLeft: 30, marginRight: 30 }}>
+                        <ListGroup.Item action href={'/gameResult'} style={{ borderColor: '#DFDFDF', marginTop: 10, marginBottom: 10,  borderLeft: 0, borderRight: 0 }}>
+                            <h5>악동뮤지션 vs 방탄소년단</h5>
                         </ListGroup.Item>
-                        <ListGroup.Item action>
-                            <h5 style={{ color: '#ff9500' }}>최한솔 vs 박찬형</h5>
+                        <ListGroup.Item action style={{ borderColor: '#DFDFDF', marginBottom: 10, borderTop: 0, borderLeft: 0, borderRight: 0}}>
+                            <h5>최한솔 vs 박찬형</h5>
                         </ListGroup.Item>
-                        <ListGroup.Item action>
-                            <h5 style={{ color: '#ff9500' }}>짜장 vs 짬뽕</h5>
+                        <ListGroup.Item action style={{ borderColor: '#DFDFDF', marginBottom: 10, borderTop: 0, borderLeft: 0, borderRight: 0}}>
+                            <h5>짜장 vs 짬뽕</h5>
                         </ListGroup.Item>
-                        <ListGroup.Item action>
-                            <h5 style={{ color: '#ff9500' }}>악동뮤지션 vs 방탄소년단</h5>
+                        <ListGroup.Item action style={{ borderColor: '#DFDFDF', marginBottom: 10, borderTop: 0, borderLeft: 0, borderRight: 0 }}>
+                            <h5>생각 없는데 공부잘하는 애 vs 생각 많은데 공부 못하는 애</h5>
                         </ListGroup.Item>
-                        <ListGroup.Item action>
-                            <h5 style={{ color: '#ff9500' }}>최한솔 vs 박찬형</h5>
+                        <ListGroup.Item action style={{ borderColor: '#DFDFDF', marginBottom: 10, borderTop: 0, borderLeft: 0, borderRight: 0}}>
+                            <h5>곰인형 vs 레고</h5>
                         </ListGroup.Item>
-                        <ListGroup.Item action>
-                            <h5 style={{ color: '#ff9500' }}>짜장 vs 짬뽕</h5>
+                        <ListGroup.Item action style={{ borderColor: '#DFDFDF', marginBottom: 10, borderTop: 0, borderLeft: 0, borderRight: 0 }}>
+                            <h5>미세먼지 마스크 극혐 vs 미세먼지가 더 극혐</h5>
                         </ListGroup.Item>
                     </ListGroup>
                 </div>

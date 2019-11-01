@@ -29,21 +29,20 @@ export default class SignIn extends Component {
 
     render() {
         return (
-            <div class='text-center' style={{ marginTop: 25, padding: 10 }}>
+            <div className='text-center' style={{ marginTop: 25, padding: 10 }}>
                 <img
                 alt='QnQ'
                 src={logo}
-                class='img-fluid'
+                className='img-fluid'
                 style={{ marginBottom: 15 }}
                 />
                 <Form style={{ padding: 25, marginTop: 10 }} onSubmit={this.loginSubmit}>
                     <Form.Group controlId='Id'>
-                        <Form.Control type='id' size='lg' name='id' placeholder='example@abcd.com' style={{ borderColor: '#ff9500', borderRadius: 30 }} onChange={this.handleChange} />
+                        <Form.Control type='id' size='lg' name='id' placeholder='example@abcd.com' style={{ display: 'flex', borderTop: 0, borderLeft: 0, borderRight: 0, borderColor: '#ff9500', borderRadius: 0 }} onChange={this.handleChange} />
                     </Form.Group>
                     <Form.Group controlId='Pw'>
-                        <Form.Control type='password' size='lg' name='pw' placeholder='******' style={{ borderColor: '#ff9500', borderRadius: 30 }} onChange={this.handleChange} />
+                        <Form.Control type='password' size='lg' name='pw' placeholder='******' style={{ borderTop: 0, borderLeft: 0, borderRight: 0, borderColor: '#ff9500', borderRadius: 0 }} onChange={this.handleChange} />
                     </Form.Group>
-                    <hr style={{ marginTop: 50 }} />
                     <Button type='submit' block
                         style={{ marginTop: 50, padding: 10, alignSelf: 'center', backgroundColor: '#fd8a1f', borderColor: '#ff9500', borderRadius: 30 }}>
                         LOGIN

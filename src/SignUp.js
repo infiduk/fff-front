@@ -32,16 +32,16 @@ export default class SignUp extends Component {
             <div style={{ marginTop: 25, padding: 10 }}>
                 <Form style={{ padding: 25, marginTop: 10 }} onSubmit={this.signSubmit}>
                     <Form.Group controlId='Id'>
-                        <Form.Control type='id' name='id' size='lg' placeholder='Input your email' style={{ borderTop: 0, borderLeft: 0, borderRight: 0 }} onChange={this.handleChange} />
+                        <Form.Control type='id' name='id' size='lg' placeholder='Input your email' style={{ borderTop: 0, borderLeft: 0, borderRight: 0, borderColor: '#ff9500', borderRadius: 0 }} onChange={this.handleChange} />
                     </Form.Group>
                     <Form.Group controlId='Pw'>
-                        <Form.Control type='password' name='pw' size='lg' placeholder='******' style={{ borderTop: 0, borderLeft: 0, borderRight: 0 }} onChange={this.handleChange} />
+                        <Form.Control type='password' name='pw' size='lg' placeholder='******' style={{ borderTop: 0, borderLeft: 0, borderRight: 0, borderColor: '#ff9500', borderRadius: 0 }} onChange={this.handleChange} />
                     </Form.Group>
                     <Form.Group controlId='PwCheck'>
-                        <Form.Control type='password' name='pwCheck' size='lg' placeholder='******' style={{ borderTop: 0, borderLeft: 0, borderRight: 0 }} onChange={this.handleChange} />
+                        <Form.Control type='password' name='pwCheck' size='lg' placeholder='******' style={{ borderTop: 0, borderLeft: 0, borderRight: 0, borderColor: '#ff9500', borderRadius: 0 }} onChange={this.handleChange} />
                     </Form.Group>
                     <Form.Group controlId='Name'>
-                        <Form.Control type='text' name='name' size='lg' placeholder='Input your name' style={{ borderTop: 0, borderLeft: 0, borderRight: 0 }} onChange={this.handleChange} />
+                        <Form.Control type='text' name='name' size='lg' placeholder='Input your name' style={{ borderTop: 0, borderLeft: 0, borderRight: 0, borderColor: '#ff9500', borderRadius: 0 }} onChange={this.handleChange} />
                     </Form.Group>
                     <Button type='submit' block
                         style={{ marginTop: 50, padding: 10, alignSelf: 'center', backgroundColor: '#ff9500', borderColor: '#ff9500', borderRadius: 30 }}>
