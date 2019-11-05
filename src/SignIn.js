@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
-import { Button, Form } from 'react-bootstrap';
+
+import { Form } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import logo from './assets/qnq.jpg';
+
+import { SignFormGroup } from './components/Form';
+import { FillButton, EmptyButton } from './components/Button';
 
 export default class SignIn extends Component {
     constructor(props) {
@@ -37,22 +41,13 @@ export default class SignIn extends Component {
                 style={{ marginBottom: 15 }}
                 />
                 <Form style={{ padding: 25, marginTop: 10 }} onSubmit={this.loginSubmit}>
-                    <Form.Group controlId='Id'>
-                        <Form.Control type='id' size='lg' name='id' placeholder='example@abcd.com' style={{ display: 'flex', borderTop: 0, borderLeft: 0, borderRight: 0, borderColor: '#ff9500', borderRadius: 0 }} onChange={this.handleChange} />
-                    </Form.Group>
-                    <Form.Group controlId='Pw'>
-                        <Form.Control type='password' size='lg' name='pw' placeholder='******' style={{ borderTop: 0, borderLeft: 0, borderRight: 0, borderColor: '#ff9500', borderRadius: 0 }} onChange={this.handleChange} />
-                    </Form.Group>
-                    <Button type='submit' block
-                        style={{ marginTop: 50, padding: 10, alignSelf: 'center', backgroundColor: '#fd8a1f', borderColor: '#ff9500', borderRadius: 30 }}>
-                        LOGIN
-                    </Button>
-                    <Button type='button' block
-                        style={{ marginTop: 20, padding: 10, alignSelf: 'center', backgroundColor: '#fff', borderColor: '#ff9500', borderRadius: 30, color: '#ff9500' }} onClick={this.signSubmit}>
-                        Sign Up
-                    </Button>
+                    <SignFormGroup controlId='Id' type='text' name='id' placeholder='example@example.com' onChange={this.handleChange} />
+                    <SignFormGroup controlId='Pw' type='password' name='pw' placeholder='******' onChange={this.handleChange} />
+                    <FillButton type='submit' text='Sign In' />
+                    <EmptyButton type='button' text='Sign Up' onClick={this.signSubmit} />
                 </Form>
             </div>
         )
     }
 }
+
