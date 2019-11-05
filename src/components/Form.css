@@ -1,0 +1,8 @@
+.SignFormGroup {
+    display: 'flex';
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-color: '#ff9500';
+    border-radius: 0;
+}

@@ -3,6 +3,8 @@ import React from 'react';
 import { ListGroup } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+import './List.css';
+
 export const MainList = props => {
     return (
         <ListGroup.Item action href={props.href}>
@@ -21,6 +23,8 @@ export const MainList = props => {
 
 export const MyPageList = props => {
     return (
-        <></>
+        <ListGroup.Item action href={props.href} className='MyPageList'>
+            <h5>{props.title}</h5>
+        </ListGroup.Item>
     );
 };
