@@ -27,6 +27,7 @@ export default class NavbarClass extends Component {
               <Nav.Link href='/signUp' style={{ color: '#ff9500' }}>회원가입</Nav.Link>
               <Nav.Link href='/myPage' style={{ color: '#ff9500' }}>내 정보</Nav.Link>
               <Nav.Link href='/proposeQuiz' style={{ color: '#ff9500' }}>문제 제안</Nav.Link>
+              <Nav.Link href='/newQuiz' style={{ color: '#ff9500' }}>문제 추가</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Navbar>

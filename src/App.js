@@ -12,6 +12,8 @@ import SignUp from './pages/SignUp';
 import MyPage from './pages/MyPage';
 import ProposeQuiz from './pages/ProposeQuiz';
 
+import NewQuiz from './pages/NewQuiz';
+
 import Navbar from './Navbar';
 
 function App() {
@@ -30,6 +32,8 @@ function App() {
           {/* 게임, 게임 결과 */}
           <Route path='/game' component={Game} />
           <Route path='/gameResult' component={GameResult} />
+          {/* 퀴즈 추가 */}
+          <Route path='/newQuiz' component={NewQuiz} />
         </Switch>
       </div>
     </Router>

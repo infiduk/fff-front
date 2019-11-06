@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 
+import { Form } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+
+import { SignFormGroup } from '../components/Form';
+import { FillButton } from '../components/Button';
 
 export default class ProposeQuiz extends Component {
     render() {
@@ -11,7 +15,12 @@ export default class ProposeQuiz extends Component {
                 <div style={{ marginTop: 20 }}>
                     <h5>제안할 문제 명</h5>
                     <hr style={{ marginTop: 0, backgroundColor: '#ff9500' }} />
-                    
+                    <Form>
+                        <SignFormGroup placeholder='문제냉요' />
+                        <SignFormGroup placeholder='더 큰 박스로 바꿀 것임 일단' />
+                        <SignFormGroup placeholder='선택들도 바꿀것임' />
+                        <FillButton tyle='submit' />
+                    </Form>
                 </div>
             </div>
         );
