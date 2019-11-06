@@ -3,10 +3,10 @@ import React, { Component } from 'react';
 import { Form } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import logo from './assets/qnq.jpg';
+import logo from '../assets/qnq.jpg';
 
-import { SignFormGroup } from './components/Form';
-import { FillButton, EmptyButton } from './components/Button';
+import { SignFormGroup } from '../components/Form';
+import { FillButton, EmptyButton } from '../components/Button';
 
 export default class SignIn extends Component {
     constructor(props) {

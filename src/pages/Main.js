@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { ListGroup } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import { MainList } from './components/List';
+import { MainList } from '../components/List';
 
 export default class Main extends Component {
     constructor(props) {
