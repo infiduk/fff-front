@@ -9,7 +9,7 @@ export const MainList = props => {
     return (
         <ListGroup.Item action href={props.href}>
             <div className='col'>
-                <h5 style={{ color: '#ff9500', marginLeft: -20 }}>{props.title}</h5>
+                <h5 style={{ color: '#d5aad4', marginLeft: -20 }}>{props.title}</h5>
                 <div className='row'> 
                     <h6 style={{ marginTop: 5, flex: 0.5 }}>{props.date}</h6>
                     <div style={{ marginTop: 5, textAlign: 'right', flex: 0.5 }}>

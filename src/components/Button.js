@@ -9,8 +9,8 @@ const FillButtonStyle = {
     marginTop: 50,
     padding: 10,
     alignSelf: 'center',
-    backgroundColor: '#fd8a1f',
-    borderColor: '#ff9500',
+    backgroundColor: '#d5aad4',
+    borderColor: '#d5aad4',
     borderRadius: 30
 };
 
@@ -19,9 +19,9 @@ const EmptyButtonStyle = {
     padding: 10,
     alignSelf: 'center',
     backgroundColor: '#fff',
-    borderColor: '#ff9500',
+    borderColor: '#d5aad4',
     borderRadius: 30,
-    color: '#ff9500'
+    color: '#d5aad4'
 };
 
 export const FillButton = props => {

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { Form } from 'react-bootstrap';
+import { Form, InputGroup, FormControl } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { SignFormGroup } from '../components/Form';
@@ -13,6 +13,8 @@ export default class SignUp extends Component {
             id: '',
             password: '',
             name: '',
+            man: false,
+            woman: false
         };
     }
 
@@ -21,8 +23,18 @@ export default class SignUp extends Component {
         window.location.assign('/signIn');
     };
 
-    handleChange = (e) => {
+    handleChange = e => {
         this.setState({ [e.target.name]: e.target.value });
+    }
+
+    manChange = e => {
+        this.setState({ man: e.target.checked, woman: false })
+        console.log(e.target.value)
+    }
+
+    womanChange = e => {
+        this.setState({ woman: e.target.checked, man: false })
+        console.log(e.target.value)
     }
 
     render() {
@@ -33,6 +45,13 @@ export default class SignUp extends Component {
                     <SignFormGroup controlId='Pw' type='password' name='pw' placeholder='******' onChange={this.handleChange} />
                     <SignFormGroup controlId='PwCheck' type='password' name='pw' placeholder='******' onChange={this.handleChange} />
                     <SignFormGroup controlId='Name' type='text' name='name' placeholder='Input your name' onChange={this.handleChange} />
+                    <SignFormGroup controlId='Date' type='date' name='date' onChange={this.handleChange} />
+                    <div className='row'>
+                    <FormControl type='radio' name='sex' value='man' onChange={this.manChange} checked={this.state.man} style={{ width: '5%' }} />
+                    <h5 style={{ alignSelf: 'flex-end', marginRight: 50 }}>남자</h5>
+                    <FormControl type='radio' name='sex' value='woman'  onChange={this.womanChange} checked={this.state.woman} style={{ width: '5%' }} />
+                    <h5 style={{ alignSelf: 'flex-end' }}>여자</h5>
+                    </div>
                     <FillButton type='submit' text='Sign Up' />
                 </Form>
             </div>

@@ -38,9 +38,9 @@ export default class SignIn extends Component {
                 alt='QnQ'
                 src={logo}
                 className='img-fluid'
-                style={{ marginBottom: 15 }}
+                style={{ marginBottom: 110 }}
                 />
-                <Form style={{ padding: 25, marginTop: 10 }} onSubmit={this.loginSubmit}>
+                <Form style={{ padding: 25 }} onSubmit={this.loginSubmit}>
                     <SignFormGroup controlId='Id' type='text' name='id' placeholder='example@example.com' onChange={this.handleChange} />
                     <SignFormGroup controlId='Pw' type='password' name='pw' placeholder='******' onChange={this.handleChange} />
                     <FillButton type='submit' text='Sign In' />

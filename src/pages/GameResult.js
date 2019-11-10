@@ -44,13 +44,13 @@ export default class GameResult extends Component {
                         <Form.Group controlId='Ticket'>
                             <Form.Control type='number' size='md' name='ticket' placeholder='사용할 티켓 수를 입력해주세요.' onChange={this.handleChange} />
                         </Form.Group>
-                        <Button type='submit' onClick={this.handleClose} style={{ padding: 10, backgroundColor: '#ff9500', borderColor: '#fff' }} block>
+                        <Button type='submit' onClick={this.handleClose} style={{ padding: 10, backgroundColor: '#d5aad4', borderColor: '#fff' }} block>
                             확인
                         </Button>
                     </Form>
                 </Modal.Body>
             </Modal>
-                <h2 style={{ marginTop: 30, marginBottom: 30, textAlign: 'center', color: '#ff9500' }}>최한솔 vs. 박찬형</h2>
+                <h2 style={{ marginTop: 30, marginBottom: 30, textAlign: 'center', color: '#d5aad4' }}>최한솔 vs. 박찬형</h2>
                 <div style={{ padding: 10, backgroundColor: '#fafafa' }}>
                     <div style={{ padding: 20 }}>
                         <h5>누구누구</h5>
@@ -60,10 +60,10 @@ export default class GameResult extends Component {
                         <ProgressBar striped variant='warning' now={50} label='6000표' style={{ height: '40px', marginTop: 5, marginLeft: 10, marginRight: 10, marginBottom: 10 }} />
                     </div>
                 </div>
-                <Button type='button' style={{ padding: 10, marginTop: 25, backgroundColor: '#ff9500', borderColor: '#ff9500'}} onClick={this.handleGoBack} block>메인화면</Button>
+                <Button type='button' style={{ padding: 10, marginTop: 25, backgroundColor: '#d5aad4', borderColor: '#d5aad4'}} onClick={this.handleGoBack} block>메인화면</Button>
                 <hr />
                 <h6 style={{ textAlign: 'center' }}>리매치를 위해 기여된 티켓 수 : 10033개</h6>
-                <Button type='button' style={{ padding: 10, marginTop: 25, backgroundColor: '#fff', borderColor: '#ff9500', color: '#ff9500' }} onClick={this.handleShow} block>리벤지 신청</Button>
+                <Button type='button' style={{ padding: 10, marginTop: 25, backgroundColor: '#fff', borderColor: '#d5aad4', color: '#d5aad4' }} onClick={this.handleShow} block>리벤지 신청</Button>
             </div>
         );
     }

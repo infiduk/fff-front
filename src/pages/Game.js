@@ -7,7 +7,7 @@ export default class Game extends Component {
     render() {
         return (
             <div style={{ marginTop: 20, padding: 25 }}>
-                <h2 style={{ textAlign: 'center', color: '#ff9500' }}>최한솔 vs. 박찬형</h2>
+                <h2 style={{ textAlign: 'center', color: '#d5aad4' }}>최한솔 vs. 박찬형</h2>
                 <h5 style={{ marginTop: 30, textAlign: 'center' }}>또르와 chpark 당신의 선택은?</h5>
                 <h5 style={{ textAlign: 'center' }}>엘렐렐렐렐ㄹ엘ㅇ엘ㅇ레레 95들의 자존심 싸움</h5>
                 <div className='row' style={{ margin: 25, alignItems: 'center', justifyContent: 'center' }}>
