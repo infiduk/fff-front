@@ -1,30 +1,30 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
-import { Button, Form, Modal, ProgressBar } from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import { Button, Form, Modal, ProgressBar } from 'react-bootstrap'
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 export default class GameResult extends Component {
     constructor(props) {
-        super(props);
+        super(props)
         this.state = {
             setShow: false,
         }
     }
 
     handleGoBack = () => {
-        window.location.assign('/');
+        window.location.assign('/')
     }
 
     handleClose = () => {
-        this.setState({ setShow : false });
+        this.setState({ setShow : false })
     }
 
     handleShow = () => {
-        this.setState({ setShow: true });
-    };
+        this.setState({ setShow: true })
+    }
 
     render() {
-        const { setShow } = this.state;
+        const { setShow } = this.state
         return (
             <div style={{ margin: 25 }}>
                 <Modal show={setShow} onHide={this.handleClose}>
@@ -65,6 +65,6 @@ export default class GameResult extends Component {
                 <h6 style={{ textAlign: 'center' }}>리매치를 위해 기여된 티켓 수 : 10033개</h6>
                 <Button type='button' style={{ padding: 10, marginTop: 25, backgroundColor: '#fff', borderColor: '#d5aad4', color: '#d5aad4' }} onClick={this.handleShow} block>리벤지 신청</Button>
             </div>
-        );
+        )
     }
 }

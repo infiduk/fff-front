@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
-import { Form } from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import { Form } from 'react-bootstrap'
+import 'bootstrap/dist/css/bootstrap.min.css'
 
-import { SignFormGroup } from '../components/Form';
-import { FillButton } from '../components/Button';
+import { SignFormGroup } from '../components/Form'
+import { FillButton } from '../components/Button'
 
 export default class ProposeQuiz extends Component {
     render() {
@@ -23,6 +23,6 @@ export default class ProposeQuiz extends Component {
                     </Form>
                 </div>
             </div>
-        );
+        )
     }
 }

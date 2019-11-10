@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import { ListGroup } from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import React, { Component } from 'react'
+import { ListGroup } from 'react-bootstrap'
+import 'bootstrap/dist/css/bootstrap.min.css'
 
-import { MyPageList } from '../components/List';
+import { MyPageList } from '../components/List'
 
 export default class MyPage extends Component {
     render() {
@@ -26,6 +26,6 @@ export default class MyPage extends Component {
                     </ListGroup>
                 </div>
             </div>
-        );
+        )
     }
 }

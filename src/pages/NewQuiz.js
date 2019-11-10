@@ -1,29 +1,29 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
-import { Form } from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import { Form } from 'react-bootstrap'
+import 'bootstrap/dist/css/bootstrap.min.css'
 
-import { SignFormGroup } from '../components/Form';
-import { FillButton } from '../components/Button';
+import { SignFormGroup } from '../components/Form'
+import { FillButton } from '../components/Button'
 
 export default class NewQuiz extends Component {
     constructor(props) {
-        super(props);
+        super(props)
         this.state = {
             title: '',
             choice1: '',
             choice2: '',
             content: '',
-        };
+        }
     }
 
     quizSubmit = async e => {
-        e.preventDefault();
-        window.location.assign('/');
-    };
+        e.preventDefault()
+        window.location.assign('/')
+    }
 
     handleChange = (e) => {
-        this.setState({ [e.target.name]: e.target.value });
+        this.setState({ [e.target.name]: e.target.value })
     }
 
     render() {

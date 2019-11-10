@@ -1,40 +1,38 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
-import { Form, InputGroup, FormControl } from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import { Form } from 'react-bootstrap'
+import 'bootstrap/dist/css/bootstrap.min.css'
 
-import { SignFormGroup } from '../components/Form';
-import { FillButton } from '../components/Button';
+import { SignFormGroup, RadioForm } from '../components/Form'
+import { FillButton } from '../components/Button'
 
 export default class SignUp extends Component {
     constructor(props) {
-        super(props);
+        super(props)
         this.state = {
             id: '',
             password: '',
             name: '',
             man: false,
             woman: false
-        };
+        }
     }
 
-    loginSubmit = async e => {
-        e.preventDefault();
-        window.location.assign('/signIn');
-    };
+    loginSubmit = e => {
+        e.preventDefault()
+        window.location.assign('/signIn')
+    }
 
     handleChange = e => {
-        this.setState({ [e.target.name]: e.target.value });
+        this.setState({ [e.target.name]: e.target.value })
     }
 
     manChange = e => {
-        this.setState({ man: e.target.checked, woman: false })
-        console.log(e.target.value)
+        this.setState({ [e.target.value]: e.target.checked, woman: false })
     }
 
     womanChange = e => {
-        this.setState({ woman: e.target.checked, man: false })
-        console.log(e.target.value)
+        this.setState({ [e.target.value]: e.target.checked, man: false })
     }
 
     render() {
@@ -47,10 +45,8 @@ export default class SignUp extends Component {
                     <SignFormGroup controlId='Name' type='text' name='name' placeholder='Input your name' onChange={this.handleChange} />
                     <SignFormGroup controlId='Date' type='date' name='date' onChange={this.handleChange} />
                     <div className='row'>
-                    <FormControl type='radio' name='sex' value='man' onChange={this.manChange} checked={this.state.man} style={{ width: '5%' }} />
-                    <h5 style={{ alignSelf: 'flex-end', marginRight: 50 }}>남자</h5>
-                    <FormControl type='radio' name='sex' value='woman'  onChange={this.womanChange} checked={this.state.woman} style={{ width: '5%' }} />
-                    <h5 style={{ alignSelf: 'flex-end' }}>여자</h5>
+                        <RadioForm name='sex' value='man' change={this.manChange} checked={this.state.man} label='남자' />
+                        <RadioForm name='sex' value='woman' change={this.womanChange} checked={this.state.woman} label='여자' />
                     </div>
                     <FillButton type='submit' text='Sign Up' />
                 </Form>
