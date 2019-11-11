@@ -28,7 +28,7 @@ export const ProposeList = props => {
                 <div className='row'>
                     <h5 style={{ color: '#d8b1d6' }}>{props.title}</h5>
                     <Button
-                        style={{ color: '#d8b1d6', borderColor: '#d8b1d6', marginLeft: 10, alignSelf: 'flex-start' }}
+                        style={{ backgroundColor: '#fff', color: '#d8b1d6', borderColor: '#d8b1d6', marginLeft: 10, alignSelf: 'flex-start' }}
                         onClick={props.onClick}>UP</Button>
                     <h5 style={{ marginLeft: 5, alignSelf: 'flex-end' }}>{props.value}</h5>
 

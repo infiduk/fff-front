@@ -17,9 +17,9 @@ const EmptyButtonStyle = {
     padding: 10,
     alignSelf: 'center',
     backgroundColor: '#fff',
-    borderColor: '##d8b1d6',
+    borderColor: '#d8b1d6',
     borderRadius: 30,
-    color: '##d8b1d6'
+    color: '#d8b1d6'
 }
 
 export const FillButton = props => {
@@ -50,7 +50,7 @@ export const SquareButton = props => {
             variant={props.variant}
             size='lg'
             href={props.href}
-            style={{ width: '40vw', height: '40vw', fontWeight: '900', fontSize: '1.5rem', display: 'table-cell', backgroundColor: '#fff', borderColor: '##d8b1d6', color: '##d8b1d6' }}>
+            style={{ width: '40vw', height: '40vw', fontWeight: '900', fontSize: '1.5rem', display: 'table-cell', backgroundColor: '#fff', borderColor: '#d8b1d6', color: '#d8b1d6' }}>
             {props.label}
         </Button>
     )

@@ -8,11 +8,11 @@ export default class MyPage extends Component {
     render() {
         return (
             <div style={{ margin: 25, color: '#d8b1d6', flex: 1 }}>
-                <div style={{ padding: 20, height: '50vw', backgroundColor: '#fafafa' }}>
+                <div style={{ padding: 20, height: '200', backgroundColor: '#fafafa' }}>
                     <h3>바나프레소님</h3>
                     <h6 style={{ marginTop: 10, marginLeft: 10, color: '#000' }}>이메일@이메일.com</h6>
                 </div>
-                <div style={{ padding: 20, marginTop: 25, height: '35vw', backgroundColor: '#f2f2f2' }}>
+                <div style={{ padding: 20, marginTop: 25, height: '350', backgroundColor: '#f2f2f2' }}>
                     <h6 style={{ marginLeft: 5, color: '#000' }}>보유 티켓 수</h6>
                     <div className='row' style={{ margin: 20 }}>
                         <div style={{ backgroundColor: '#efefef', height: '15vw', width: '30vw', marginRight: 5 }}></div>
