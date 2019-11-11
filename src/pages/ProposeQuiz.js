@@ -36,7 +36,7 @@ export default class ProposeQuiz extends Component {
                         <ProposeFormLg label='문제 출제 이유' rows='3' name='content' onChange={this.handleChange} />
                         <ProposeSelect label='선택1' name='select1' onChange={this.handleChange} />
                         <ProposeSelect label='선택2' name='select2' onChange={this.handleChange} />
-                        <FillButton type='submit' text='확인' onClick={this.proposeSubmit} />
+                        <FillButton type='submit' text='제출하기' onClick={this.proposeSubmit} />
                     </Form>
                 </div>
             </div>

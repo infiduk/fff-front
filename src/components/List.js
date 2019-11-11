@@ -23,12 +23,14 @@ export const MainList = props => {
 
 export const ProposeList = props => {
     return (
-        <ListGroup.Item action href={props.href}>
+        <ListGroup.Item>
             <div className='col'>
                 <div className='row'>
-                    <h5 style={{ color: '#d8b1d6', marginLeft: -20 }}>{props.title}</h5>
-                    <Button style={{ color: '#d8b1d6', borderColor: '#d8b1d6', backgroundColor: '#fff' }}>UP</Button>
-                    <h6 style={{ marginRight: 5, alignSelf: 'flex-end' }}>{props.value}</h6>
+                    <h5 style={{ color: '#d8b1d6' }}>{props.title}</h5>
+                    <Button
+                        style={{ color: '#d8b1d6', borderColor: '#d8b1d6', marginLeft: 10, alignSelf: 'flex-start' }}
+                        onClick={props.onClick}>UP</Button>
+                    <h5 style={{ marginLeft: 5, alignSelf: 'flex-end' }}>{props.value}</h5>
 
                 </div>
                 <div className='row'> 
