@@ -18,8 +18,8 @@ export default class Result extends Component {
         return (
             <div style={{ margin: 10 }}>
                 <div className='row'>
-                    <h3 style={{ marginLeft: 20, color: '#d5aad4' }}>문제 제안 목록</h3>
-                    <Button href='/proposeQuiz' style={{ marginLeft: 30, backgroundColor: '#fff', borderColor: '#d5aad4', color: '#d5aad4'}}>문제 제안</Button>
+                    <h3 style={{ marginLeft: 20, color: '#d8b1d6' }}>문제 제안 목록</h3>
+                    <Button href='/proposeQuiz' style={{ marginLeft: 30, backgroundColor: '#fff', borderColor: '#d8b1d6', color: '#d8b1d6'}}>문제 제안</Button>
                 </div>
                 <ListGroup variant='flush'>
                     <ProposeList href='/proposeQuiz' title='악동뮤지션 vs 방탄소년단' date='7일' user='최또르' value={this.state.value} />

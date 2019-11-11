@@ -16,7 +16,7 @@ export default class Main extends Component {
     render() {
         return (
             <div style={{ margin: 10 }}>
-                <h3 style={{ marginLeft: 10, color: '#d5aad4' }}>퀴즈 목록</h3>
+                <h3 style={{ marginLeft: 10, color: '#d8b1d6' }}>퀴즈 목록</h3>
                 <ListGroup variant='flush'>
                     <br />
                     <MainList href='/game' title='악동뮤지션 vs 방탄소년단' date='19.11.08 23:59' users='960912' />

@@ -7,7 +7,7 @@ import { MyPageList } from '../components/List'
 export default class MyPage extends Component {
     render() {
         return (
-            <div style={{ margin: 25, color: '#d5aad4' }}>
+            <div style={{ margin: 25, color: '#d8b1d6' }}>
                 <h3>바나프레소님</h3>
                 <h6 style={{ marginTop: 10, marginLeft: 10, color: '#000' }}>이메일@이메일.com</h6>
                 <div style={{ margin: 20 }}>

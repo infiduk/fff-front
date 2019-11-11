@@ -9,7 +9,7 @@ export const MainList = props => {
     return (
         <ListGroup.Item action href={props.href}>
             <div className='col'>
-                <h5 style={{ color: '#d5aad4', marginLeft: -20 }}>{props.title}</h5>
+                <h5 style={{ color: '#d8b1d6', marginLeft: -20 }}>{props.title}</h5>
                 <div className='row'> 
                     <h6 style={{ marginTop: 5, flex: 0.5 }}>{props.date} 마감</h6>
                     <div style={{ marginTop: 5, textAlign: 'right', flex: 0.5 }}>
@@ -26,8 +26,8 @@ export const ProposeList = props => {
         <ListGroup.Item action href={props.href}>
             <div className='col'>
                 <div className='row'>
-                    <h5 style={{ color: '#d5aad4', marginLeft: -20 }}>{props.title}</h5>
-                    <Button style={{ color: '#d5aad4', borderColor: '#d5aad4', backgroundColor: '#fff' }}>UP</Button>
+                    <h5 style={{ color: '#d8b1d6', marginLeft: -20 }}>{props.title}</h5>
+                    <Button style={{ color: '#d8b1d6', borderColor: '#d8b1d6', backgroundColor: '#fff' }}>UP</Button>
                     <h6 style={{ marginRight: 5, alignSelf: 'flex-end' }}>{props.value}</h6>
 
                 </div>
