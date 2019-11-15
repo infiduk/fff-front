@@ -10,7 +10,6 @@ export default class MyPage extends Component {
             <div style={{ margin: 25, color: '#d8b1d6', flex: 1 }}>
                 <div style={{ padding: 20, height: '200', backgroundColor: '#fafafa' }}>
                     <h3>바나프레소님</h3>
-                    <h6 style={{ marginTop: 10, marginLeft: 10, color: '#000' }}>이메일@이메일.com</h6>
                 </div>
                 <div style={{ padding: 20, marginTop: 25, height: '350', backgroundColor: '#f2f2f2' }}>
                     <h6 style={{ marginLeft: 5, color: '#000' }}>보유 티켓 수</h6>
@@ -25,8 +24,8 @@ export default class MyPage extends Component {
                         <h6 style={{ marginLeft: 5, color: '#000' }}>+</h6>
                     </div>
                     <ListGroup style={{ marginLeft: 5, marginRight: 5 }}>
-                        <MyPageList href='/gameResult' title='악동뮤지션 vs 방탄소년단' />
-                        <MyPageList title='최한솔 vs 박찬형' />
+                        <MyPageList href='/gameResult' title='깐뷔 vs 덮뷔' />
+                        <MyPageList title='이찬혁 vs 이수현' />
                         <hr />
                     </ListGroup>
                 </div>

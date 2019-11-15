@@ -33,8 +33,8 @@ export default class NewQuiz extends Component {
                     <SignFormGroup controlId='Id' type='text' name='title' placeholder='퀴즈 타이틀' onChange={this.handleChange} />
                     <SignFormGroup controlId='Pw' type='text' name='choice1' placeholder='선택1' onChange={this.handleChange} />
                     <SignFormGroup controlId='PwCheck' type='text' name='choice2' placeholder='선택2' onChange={this.handleChange} />
-                    <SignFormGroup controlId='Name' type='text' name='content' placeholder='내용내용내용' onChange={this.handleChange} />
-                    <FillButton type='submit' text='문제만들어따' />
+                    <SignFormGroup controlId='Name' type='text' name='content' placeholder='내용을 입력하세요.' onChange={this.handleChange} />
+                    <FillButton type='submit' text='문제 만들기' />
                 </Form>
             </div>
         )

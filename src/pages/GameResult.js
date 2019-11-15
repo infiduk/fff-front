@@ -50,13 +50,13 @@ export default class GameResult extends Component {
                     </Form>
                 </Modal.Body>
             </Modal>
-                <h2 style={{ marginTop: 30, marginBottom: 30, textAlign: 'center', color: '#d8b1d6' }}>최한솔 vs. 박찬형</h2>
+                <h2 style={{ marginTop: 30, marginBottom: 30, textAlign: 'center', color: '#d8b1d6' }}>깐뷔 vs. 덮뷔</h2>
                 <div style={{ padding: 10, backgroundColor: '#fafafa' }}>
                     <div style={{ padding: 20 }}>
-                        <h5>누구누구</h5>
+                        <h5>깐뷔</h5>
                         <ProgressBar striped variant='info' now={100} label='12030표' style={{ height: '40px', marginTop: 10, marginLeft: 10, marginRight: 10, marginBottom: 5 }} />
                         <br />
-                        <h5>어쩌구저쩌구</h5>
+                        <h5>덮뷔</h5>
                         <ProgressBar striped variant='warning' now={50} label='6000표' style={{ height: '40px', marginTop: 5, marginLeft: 10, marginRight: 10, marginBottom: 10 }} />
                     </div>
                 </div>
