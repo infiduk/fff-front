@@ -21,6 +21,22 @@ export const MainList = props => {
     )
 }
 
+export const ResultList = props => {
+    return (
+        <ListGroup.Item action href={props.href}>
+            <div className='col'>
+                <h5 style={{ color: '#d8b1d6', marginLeft: -20 }}>{props.title}</h5>
+                <div className='row'> 
+                    <h6 style={{ marginTop: 5, flex: 0.5 }}>{props.winner} 승</h6>
+                    <div style={{ marginTop: 5, textAlign: 'right', flex: 0.5 }}>
+                        <h6 style={{ marginRight: 5 }}>{props.users}</h6>
+                    </div>
+                </div>
+            </div>
+        </ListGroup.Item>
+    )
+}
+
 export const ProposeList = props => {
     return (
         <ListGroup.Item>

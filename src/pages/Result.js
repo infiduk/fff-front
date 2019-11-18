@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import { ListGroup } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
-import { MainList } from '../components/List'
+import { ResultList } from '../components/List'
 
 export default class Result extends Component {
     constructor(props) {
@@ -19,9 +19,9 @@ export default class Result extends Component {
                 <h3 style={{ marginLeft: 10, color: '#d8b1d6' }}>퀴즈 결과 목록</h3>
                 <ListGroup variant='flush'>
                     <br />
-                    <MainList href='/gameResult' title='깐뷔 vs 덮뷔' date='19.11.08 23:59' users='960912' />
-                    <MainList title='이찬혁 vs 이수현' date='19.11.15 23:59' users='9659' />
-                    <MainList title='Give Love(AKMU) vs 200%(AKMU)' date='19.11.23 23:59' users='18' />
+                    <ResultList href='/gameResult' title='깐뷔 vs 덮뷔' winner='깐뷔' users='960912' />
+                    <ResultList title='이찬혁 vs 이수현' winner='이찬혁' users='9659' />
+                    <ResultList title='Give Love(AKMU) vs 200%(AKMU)' winner='Give Love(AKMU)' users='18' />
                     <hr />
                 </ListGroup>
             </div>
