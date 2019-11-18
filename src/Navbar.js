@@ -24,7 +24,7 @@ export default class NavbarClass extends Component {
               <Nav.Link href='/' style={{ color: '#d5aad4' }}>게임 목록</Nav.Link>
             </Nav>
             <Nav>         
-              <Nav.Link href='/result' style={{ color: '#d5aad4' }}>게임 결과</Nav.Link>
+              <Nav.Link href='/gameResult' style={{ color: '#d5aad4' }}>게임 결과</Nav.Link>
               <Nav.Link href='/signIn' style={{ color: '#d5aad4' }}>로그인</Nav.Link>
               <Nav.Link href='/signUp' style={{ color: '#d5aad4' }}>회원가입</Nav.Link>
               <Nav.Link href='/myPage' style={{ color: '#d5aad4' }}>내 정보</Nav.Link>

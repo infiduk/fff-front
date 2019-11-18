@@ -45,8 +45,8 @@ export default class SignUp extends Component {
                     <SignFormGroup controlId='Name' type='text' name='name' placeholder='Input your name' onChange={this.handleChange} />
                     <SignFormGroup controlId='Date' type='date' name='date' onChange={this.handleChange} />
                     <div className='row'>
-                        <RadioForm name='sex' value='man' change={this.manChange} checked={this.state.man} label='남자' />
-                        <RadioForm name='sex' value='woman' change={this.womanChange} checked={this.state.woman} label='여자' />
+                        <RadioForm name='gender' value='man' change={this.manChange} checked={this.state.man} label='남자' />
+                        <RadioForm name='gender' value='woman' change={this.womanChange} checked={this.state.woman} label='여자' />
                     </div>
                     <FillButton type='submit' text='Sign Up' />
                 </Form>
