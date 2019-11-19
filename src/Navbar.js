@@ -31,6 +31,7 @@ export default class NavbarClass extends Component {
               <Nav.Link href='/proposeQuiz' style={{ color: '#d5aad4' }}>문제 제안</Nav.Link>
               <Nav.Link href='/newQuiz' style={{ color: '#d5aad4' }}>문제 추가</Nav.Link>
               <Nav.Link href='/propose' style={{ color: '#d5aad4' }}>문제 제안리스트</Nav.Link>
+              <Nav.Link href='/history' style={{ color: '#d5aad4' }}>투표 이력</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Navbar>

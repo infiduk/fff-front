@@ -37,6 +37,19 @@ export const ResultList = props => {
     )
 }
 
+export const HistoryList = props => {
+    return (
+        <ListGroup.Item>
+            <div className='col'>
+                <h5 style={{ color: '#d8b1d6', marginLeft: -20 }}>{props.tx}</h5>
+                <div className='row'> 
+                    <h6 style={{ marginTop: 5 }}>투표 제목: {props.title}</h6>
+                </div>
+            </div>
+        </ListGroup.Item>
+    )
+}
+
 export const ProposeList = props => {
     return (
         <ListGroup.Item>

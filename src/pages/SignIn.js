@@ -35,10 +35,10 @@ export default class SignIn extends Component {
         return (
             <div className='text-center' style={{ marginTop: 25, padding: 10 }}>
                 <img
-                alt='QnQ'
-                src={logo}
-                className='img-fluid'
-                style={{ marginBottom: 110 }}
+                    alt='QnQ'
+                    src={logo}
+                    className='img-fluid'
+                    style={{ marginBottom: 110 }}
                 />
                 <Form style={{ padding: 25 }} onSubmit={this.loginSubmit}>
                     <SignFormGroup controlId='Id' type='text' name='id' placeholder='example@example.com' onChange={this.handleChange} />

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import './App.css'
 
@@ -7,6 +7,7 @@ import GameResult from './pages/GameResult'
 
 import Main from './pages/Main'
 import Result from './pages/Result'
+import History from './pages/History'
 
 import SignIn from './pages/SignIn'
 import SignUp from './pages/SignUp'
@@ -19,10 +20,21 @@ import ProposeList from './pages/ProposeList'
 import Navbar from './Navbar'
 
 function App() {
+  const [ value, setValue ] = useState('')
+
+  useEffect(() => {
+    try {
+      const id = window.sessionStorage.getItem('id')
+      id ? console.log('1') : console.log('2')
+    } catch(err) {
+      console.log(err)
+    }
+  })
+
   return (
     <Router>
       <div>
-      <Navbar />
+      {/* <Navbar /> */}
         <Switch>
           {/* 메인 */}
           <Route exact path='/' component={Main} />
@@ -32,9 +44,10 @@ function App() {
           <Route path='/signIn' component={SignIn} />
           <Route path='/myPage' component={MyPage} />
           <Route path='/proposeQuiz' component={ProposeQuiz} />
-          {/* 게임, 게임 결과 */}
+          {/* 게임, 게임 결과, 히스토리 */}
           <Route path='/game' component={Game} />
           <Route path='/gameResult' component={GameResult} />
+          <Route path='/history' component={History} />
           {/* 퀴즈 추가 */}
           <Route path='/newQuiz' component={NewQuiz} />
           <Route path='/propose' component={ProposeList} />
