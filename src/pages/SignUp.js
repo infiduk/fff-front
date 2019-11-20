@@ -47,10 +47,9 @@ export default class SignUp extends Component {
                 style={{ marginLeft: 12, marginBottom: 10 }}
                 />
                 <Form style={{ padding: 25, marginTop: 10 }} onSubmit={this.loginSubmit}>
-                    <SignFormGroup controlId='Id' type='text' name='id' placeholder='example@example.com' onChange={this.handleChange} />
+                    <SignFormGroup controlId='Name' type='text' name='name' placeholder='Input your name' onChange={this.handleChange} />
                     <SignFormGroup controlId='Pw' type='password' name='pw' placeholder='******' onChange={this.handleChange} />
                     <SignFormGroup controlId='PwCheck' type='password' name='pw' placeholder='******' onChange={this.handleChange} />
-                    <SignFormGroup controlId='Name' type='text' name='name' placeholder='Input your name' onChange={this.handleChange} />
                     <SignFormGroup controlId='Date' type='date' name='date' onChange={this.handleChange} />
                     <div className='row' style={{ marginLeft: '25%', position: 'relative' }}>
                         <RadioForm name='gender' value='man' change={this.manChange} checked={this.state.man} label='남자' />

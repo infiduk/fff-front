@@ -19,6 +19,11 @@ export default class SignIn extends Component {
 
     loginSubmit = async e => {
         e.preventDefault()
+
+        const { id } = this.state
+
+        window.sessionStorage.setItem('id', id)
+
         window.location.assign('/')
     }
 
@@ -41,7 +46,7 @@ export default class SignIn extends Component {
                     style={{ marginBottom: 110 }}
                 />
                 <Form style={{ padding: 25 }} onSubmit={this.loginSubmit}>
-                    <SignFormGroup controlId='Id' type='text' name='id' placeholder='example@example.com' onChange={this.handleChange} />
+                    <SignFormGroup controlId='Id' type='text' name='id' placeholder='이름을 입력하세요.' onChange={this.handleChange} />
                     <SignFormGroup controlId='Pw' type='password' name='pw' placeholder='******' onChange={this.handleChange} />
                     <FillButton type='submit' text='Sign In' />
                     <EmptyButton type='button' text='Sign Up' onClick={this.signSubmit} />
