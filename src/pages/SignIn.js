@@ -13,20 +13,45 @@ export default class SignIn extends Component {
         super(props)
         this.state = {
             name: '',
-            id: '',
-            password: '',
-            passwordCheck: ''
+            pw: ''
         }
     }
 
     loginSubmit = async e => {
         e.preventDefault()
 
-        const { id } = this.state
+        const { name, pw } = this.state
 
-        window.sessionStorage.setItem('id', id)
+        let userInfo = {
+            'name': name,
+            'password': pw
+        }
 
-        window.location.assign('/')
+        try {
+            await fetch('http://ch-4ml.iptime.org:8080/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(userInfo),
+            })
+                .then(res => {
+                    if (res.status !== 200)
+                        console.log('실패')
+                    else {
+                        console.log(res.json().data)
+                        // window.sessionStorage.setItem('', name)
+                        // window.sessionStorage.setItem('', birth)
+                        // window.sessionStorage.setItem('', gender)
+                        // window.sessionStorage.setItem('', token)
+                        // window.sessionStorage.setItem('', votes)
+                        // window.sessionStorage.setItem('', choices)
+                        // window.location.assign('/')
+                    }
+                })
+        } catch (err) {
+            console.log(err)
+        }
     }
 
     signSubmit = async e => {
@@ -48,7 +73,7 @@ export default class SignIn extends Component {
                     style={{ marginBottom: 110 }}
                 />
                 <Form style={{ padding: 25 }} onSubmit={this.loginSubmit}>
-                    <SignFormGroup controlId='Id' type='text' name='id' placeholder='이름을 입력하세요.' onChange={this.handleChange} />
+                    <SignFormGroup controlId='Id' type='text' name='name' placeholder='이름을 입력하세요.' onChange={this.handleChange} />
                     <SignFormGroup controlId='Pw' type='password' name='pw' placeholder='******' onChange={this.handleChange} />
                     <FillButton type='submit' text='Sign In' />
                     <EmptyButton type='button' text='Sign Up' onClick={this.signSubmit} />
@@ -57,4 +82,3 @@ export default class SignIn extends Component {
         )
     }
 }
-

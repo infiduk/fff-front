@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import N from '../Navbar'
 
 import { Form } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -30,7 +29,6 @@ export default class NewQuiz extends Component {
     render() {
         return (
             <div>
-                <N />
                 <div style={{ marginTop: 25, padding: 10 }}>
                     <Form style={{ padding: 25, marginTop: 10 }} onSubmit={this.quizSubmit}>
                         <SignFormGroup controlId='Id' type='text' name='title' placeholder='퀴즈 타이틀' onChange={this.handleChange} />

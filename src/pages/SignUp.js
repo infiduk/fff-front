@@ -12,7 +12,7 @@ export default class SignUp extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            name : '',
+            name: '',
             pw: '',
             pwCheck: '',
             birth: '',
@@ -22,16 +22,36 @@ export default class SignUp extends Component {
         }
     }
 
-    loginSubmit = e => {
+    loginSubmit = async e => {
         e.preventDefault()
 
-        const { id, pw, pwCheck, name, birth, man, woman, gender } = this.state;
+        const { name, pw, birth, gender } = this.state
+
+        // 비밀번호 체크 넣기
 
         let userInfo = {
-            
+            'name': name,
+            'password': pw,
+            'birth': birth,
+            'gender': gender
         }
 
-        window.location.assign('/signIn')
+        try {
+            await fetch('http://ch-4ml.iptime.org:8080/user', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(userInfo),
+            })
+                .then(res => {
+                    (res.status === 200)
+                        ? window.location.assign('/signIn')
+                        : console.log('실패')
+                })
+        } catch (err) {
+            console.log(err)
+        }
     }
 
     handleChange = e => {
@@ -39,21 +59,21 @@ export default class SignUp extends Component {
     }
 
     manChange = e => {
-        this.setState({ [e.target.value]: e.target.checked, woman: false })
+        this.setState({ [e.target.value]: e.target.checked, woman: false, gender: 0 })
     }
 
     womanChange = e => {
-        this.setState({ [e.target.value]: e.target.checked, man: false })
+        this.setState({ [e.target.value]: e.target.checked, man: false, gender: 1 })
     }
 
     render() {
         return (
             <div style={{ marginTop: 25, padding: 10 }}>
                 <img
-                alt='QnQ'
-                src={logo}
-                className='img-fluid'
-                style={{ marginLeft: 12, marginBottom: 10 }}
+                    alt='QnQ'
+                    src={logo}
+                    className='img-fluid'
+                    style={{ marginLeft: 12, marginBottom: 10 }}
                 />
                 <Form style={{ padding: 25, marginTop: 10 }} onSubmit={this.loginSubmit}>
                     <SignFormGroup controlId='Name' type='text' name='name' placeholder='Input your name' onChange={this.handleChange} />

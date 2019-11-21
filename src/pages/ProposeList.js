@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import N from '../Navbar'
 
 import { Button, ListGroup } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -22,7 +21,6 @@ export default class Result extends Component {
     render() {
         return (
             <div>
-                <N />
                 <div style={{ margin: 10 }}>
                     <div className='row' style={{ marginBottom: 10 }}>
                         <h3 style={{ marginLeft: 20, colosr: '#d8b1d6' }}>문제 제안 목록</h3>

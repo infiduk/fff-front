@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import N from '../Navbar'
 
 import { ListGroup } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -17,7 +16,6 @@ export default class Result extends Component {
     render() {
         return (
             <div>
-                <N />
                 <div style={{ margin: 10 }}>
                     <h3 style={{ marginLeft: 10, color: '#d8b1d6' }}>퀴즈 결과 목록</h3>
                     <ListGroup variant='flush'>

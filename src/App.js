@@ -20,21 +20,21 @@ import ProposeList from './pages/ProposeList'
 import Navbar from './Navbar'
 
 function App() {
-  const [ value, setValue ] = useState('')
+  let [logged, setLogged] = useState(0)
 
   useEffect(() => {
     try {
-      const id = window.sessionStorage.getItem('id')
-      id ? console.log('1') : console.log('2')
-    } catch(err) {
+      const id = window.sessionStorage.getItem('name')
+      id ? setLogged(true) : setLogged(false)
+    } catch (err) {
       console.log(err)
     }
-  })
+  }, [])
 
   return (
     <Router>
       <div>
-      {/* <Navbar /> */}
+        {logged && <Navbar />}
         <Switch>
           {/* 메인 */}
           <Route exact path='/' component={Main} />

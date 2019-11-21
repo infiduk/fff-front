@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import N from '../Navbar'
 
 import { ListGroup } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -11,7 +10,6 @@ export default class MyPage extends Component {
     render() {
         return (
             <div>
-                <N />
                 <div style={{ margin: 25, color: '#d8b1d6', flex: 1 }}>
                     <div style={{ padding: 20, height: '200' }}>
                         <h3>바나프레소님</h3>

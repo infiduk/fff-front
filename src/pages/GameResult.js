@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import N from '../Navbar'
 
 import { Button, ProgressBar } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -30,7 +29,6 @@ export default class GameResult extends Component {
         const { setShow } = this.state
         return (
             <div>
-                <N />
                 <div style={{ margin: 25 }}>
                     <ReMatchModal
                         show={setShow} onHide={this.handleClose} formOnSubmit={this.loginSubmit} formHandleChange={this.handleChange} btnOnClick={this.handleClose} />
