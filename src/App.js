@@ -14,8 +14,7 @@ import SignUp from './pages/SignUp'
 import MyPage from './pages/MyPage'
 import ProposeQuiz from './pages/ProposeQuiz'
 
-import NewQuiz from './pages/NewQuiz'
-import ProposeList from './pages/ProposeList'
+import Propose from './pages/ProposeList'
 
 import Navbar from './Navbar'
 
@@ -44,13 +43,12 @@ function App() {
           <Route path='/signIn' component={SignIn} />
           <Route path='/myPage' component={MyPage} />
           <Route path='/proposeQuiz' component={ProposeQuiz} />
-          {/* 게임, 게임 결과, 히스토리 */}
+          {/* 투표 목록, 투표, 투표 결과, 히스토리 */}
           <Route path='/game' component={Game} />
           <Route path='/gameResult' component={GameResult} />
           <Route path='/history' component={History} />
-          {/* 퀴즈 추가 */}
-          <Route path='/newQuiz' component={NewQuiz} />
-          <Route path='/propose' component={ProposeList} />
+          {/* 문제 제안 리스트 */}
+          <Route path='/propose' component={Propose} />
         </Switch>
       </div>
     </Router>

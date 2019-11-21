@@ -22,6 +22,7 @@ export default class SignUp extends Component {
         }
     }
 
+    // 회원가입 API
     sign = async e => {
         e.preventDefault()
 

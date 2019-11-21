@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 
 import { ProposeList } from '../components/List'
 
-export default class Result extends Component {
+export default class Propose extends Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -14,6 +14,28 @@ export default class Result extends Component {
         }
     }
 
+    componentDidMount() {
+        this.propose()
+        // setState list 넣기
+    }
+
+    // 투표 제안 목록 조회 API
+    propose = async () => {
+        try {
+            await fetch('http://ch-4ml.iptime.org:8080/post')
+                .then(res => {
+                    console.log(res)
+                    if (res.status !== 200)
+                        console.log('실패')
+                    else return res.json()
+                })
+                .catch(err => console.log(err))
+        } catch (err) {
+            console.log(err)
+        }
+    }
+
+    // 제안 추천 +1
     onSubmit = () => {
         this.setState({ value: this.state.value + 10 })
     }

@@ -10,6 +10,51 @@ export default class Result extends Component {
         super(props)
         this.state = {
             list: [],
+            name: window.sessionStorage.getItem('name'),
+            birth: window.sessionStorage.getItem('birth'),
+            gender: window.sessionStorage.getItem('gender'),
+            token: window.sessionStorage.getItem('token'),
+            votes: window.sessionStorage.getItem('votes'),
+            choices: window.sessionStorage.getItem('choices'),
+            hpw: window.sessionStorage.getItem('hpw'),
+        }
+    }
+
+    componentDidMount() {
+        // this.result()
+        // .then(res => this.setState({ list: res.votes }))
+        // .catch(err => console.log(err))
+    }
+
+    // 투표 완료 목록 조회 API
+    // 현재 Main 이랑 같음
+    result = async () => {
+        const { name, hpw } = this.state
+
+        let userInfo = {
+            user: {
+                'name': name,
+                'hpw': hpw
+            }
+        }
+
+        try {
+            await fetch('http://ch-4ml.iptime.org:8080/vote', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(userInfo),
+            })
+                .then(res => {
+                    console.log(res)
+                    if (res.status !== 200)
+                        console.log('실패')
+                    else return res.json()
+                })
+                .catch(err => console.log(err))
+        } catch (err) {
+            console.log(err)
         }
     }
 

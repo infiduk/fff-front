@@ -17,6 +17,7 @@ export default class SignIn extends Component {
         }
     }
 
+    // 로그인 API
     login = async e => {
         e.preventDefault()
 
@@ -39,14 +40,19 @@ export default class SignIn extends Component {
                     if (res.status !== 200)
                         console.log('실패')
                     else {
-                        console.log(res.msg)
-                        // window.sessionStorage.setItem('', name)
-                        // window.sessionStorage.setItem('', birth)
-                        // window.sessionStorage.setItem('', gender)
-                        // window.sessionStorage.setItem('', token)
-                        // window.sessionStorage.setItem('', votes)
-                        // window.sessionStorage.setItem('', choices)
-                        // window.location.assign('/')
+                        res.json()
+                            .then(json => {
+                                // 세션에 저장
+                                window.sessionStorage.setItem('name', json.data.user.name)
+                                window.sessionStorage.setItem('birth', json.data.user.birth)
+                                window.sessionStorage.setItem('gender', json.data.user.gender)
+                                window.sessionStorage.setItem('token', json.data.user.token)
+                                window.sessionStorage.setItem('votes', json.data.user.votes)
+                                window.sessionStorage.setItem('choices', json.data.user.choices)
+                                window.sessionStorage.setItem('hpw', json.data.user.hpw)
+                                
+                                window.location.assign('/')
+                            })
                     }
                 })
         } catch (err) {
