@@ -17,7 +17,7 @@ export default class SignIn extends Component {
         }
     }
 
-    loginSubmit = async e => {
+    login = async e => {
         e.preventDefault()
 
         const { name, pw } = this.state
@@ -39,7 +39,7 @@ export default class SignIn extends Component {
                     if (res.status !== 200)
                         console.log('실패')
                     else {
-                        console.log(res.json().data)
+                        console.log(res.msg)
                         // window.sessionStorage.setItem('', name)
                         // window.sessionStorage.setItem('', birth)
                         // window.sessionStorage.setItem('', gender)
@@ -54,7 +54,7 @@ export default class SignIn extends Component {
         }
     }
 
-    signSubmit = async e => {
+    linkToSignUp = async e => {
         e.preventDefault()
         window.location.assign('/signUp')
     }
@@ -72,11 +72,11 @@ export default class SignIn extends Component {
                     className='img-fluid'
                     style={{ marginBottom: 110 }}
                 />
-                <Form style={{ padding: 25 }} onSubmit={this.loginSubmit}>
+                <Form style={{ padding: 25 }} onSubmit={this.login}>
                     <SignFormGroup controlId='Id' type='text' name='name' placeholder='이름을 입력하세요.' onChange={this.handleChange} />
                     <SignFormGroup controlId='Pw' type='password' name='pw' placeholder='******' onChange={this.handleChange} />
                     <FillButton type='submit' text='Sign In' />
-                    <EmptyButton type='button' text='Sign Up' onClick={this.signSubmit} />
+                    <EmptyButton type='button' text='Sign Up' onClick={this.linkToSignUp} />
                 </Form>
             </div>
         )

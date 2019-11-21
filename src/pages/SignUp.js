@@ -22,7 +22,7 @@ export default class SignUp extends Component {
         }
     }
 
-    loginSubmit = async e => {
+    sign = async e => {
         e.preventDefault()
 
         const { name, pw, birth, gender } = this.state
@@ -75,7 +75,7 @@ export default class SignUp extends Component {
                     className='img-fluid'
                     style={{ marginLeft: 12, marginBottom: 10 }}
                 />
-                <Form style={{ padding: 25, marginTop: 10 }} onSubmit={this.loginSubmit}>
+                <Form style={{ padding: 25, marginTop: 10 }} onSubmit={this.sign}>
                     <SignFormGroup controlId='Name' type='text' name='name' placeholder='Input your name' onChange={this.handleChange} />
                     <SignFormGroup controlId='Pw' type='password' name='pw' placeholder='******' onChange={this.handleChange} />
                     <SignFormGroup controlId='PwCheck' type='password' name='pwCheck' placeholder='******' onChange={this.handleChange} />

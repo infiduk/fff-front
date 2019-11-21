@@ -13,6 +13,26 @@ export default class Main extends Component {
         }
     }
 
+    componentDidMount() {
+        this.vote()
+            .then(res => this.setState({ list: res.votes }))
+            .catch(err => console.log(err))
+    }
+
+    vote = async () => {
+        try {
+            await fetch('http://ch-4ml.iptime.org:8080/vote')
+            .then(res => {
+                if(res.status !== 200)
+                    console.log('실패')
+                else return res.json()
+            })
+            .catch(err => console.log(err))
+        } catch(err) {
+            console.log(err)
+        }
+    }
+
     render() {
         return (
             <div>

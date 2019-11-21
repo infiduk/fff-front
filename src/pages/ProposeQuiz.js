@@ -33,7 +33,7 @@ export default class ProposeQuiz extends Component {
                         <hr style={{ backgroundColor: '#d8b1d6' }} />
                         <Form>
                             <NLProposeForm type='text' name='title' placeholder='문제명을 입력해주세요.' onChange={this.handleChange} />
-                            <ProposeForm label='투표 마감 시간' type='date' name='date' onChange={this.handleChange} />
+                            <ProposeForm label='희망 투표 기간(일)' type='text' name='date' onChange={this.handleChange} />
                             <ProposeFormLg label='문제 출제 이유' rows='3' name='content' onChange={this.handleChange} />
                             <ProposeSelect label='선택1' name='select1' onChange={this.handleChange} />
                             <ProposeSelect label='선택2' name='select2' onChange={this.handleChange} />
