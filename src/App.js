@@ -19,7 +19,7 @@ import Propose from './pages/ProposeList'
 import Navbar from './Navbar'
 
 function App() {
-  let [logged, setLogged] = useState(0)
+  let [logged, setLogged] = useState('')
 
   useEffect(() => {
     try {

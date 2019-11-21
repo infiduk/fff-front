@@ -16,6 +16,7 @@ export default class Propose extends Component {
 
     componentDidMount() {
         this.propose()
+        .then(json => console.log(json))
         // setState list 넣기
     }
 
@@ -24,7 +25,6 @@ export default class Propose extends Component {
         try {
             await fetch('http://ch-4ml.iptime.org:8080/post')
                 .then(res => {
-                    console.log(res)
                     if (res.status !== 200)
                         console.log('실패')
                     else return res.json()
@@ -37,7 +37,7 @@ export default class Propose extends Component {
 
     // 제안 추천 +1
     onSubmit = () => {
-        this.setState({ value: this.state.value + 10 })
+        this.setState({ value: this.state.value + 1 })
     }
 
     render() {

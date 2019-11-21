@@ -10,7 +10,12 @@ export default class ProposeQuiz extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            content: ''
+            title: '',
+            context: '',
+            period: '',
+            choice1: '',
+            choice2: '',
+            writer: window.sessionStorage.getItem('name')
         }
     }
 
@@ -18,9 +23,41 @@ export default class ProposeQuiz extends Component {
         this.setState({ [e.target.name]: e.target.value })
     }
 
-    proposeSubmit = async e => {
+    propose = async e => {
         e.preventDefault()
-        window.location.assign('/propose')
+
+        const { title, context, period, choice1, choice2, writer } = this.state
+
+        // 비밀번호 체크 넣기
+
+        let proposeInfo = {
+            user: {
+                'name': writer
+            },
+            'title': title,
+            'conetxt': context,
+            'period': period,
+            'choice1': choice1,
+            'choice2': choice2,
+            'writer': writer
+        }
+
+        try {
+            await fetch('http://ch-4ml.iptime.org:8080/post', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(proposeInfo),
+            })
+                .then(res => {
+                    (res.status === 200)
+                        ? window.location.assign('/propose')
+                        : console.log('실패')
+                })
+        } catch (err) {
+            console.log(err)
+        }
     }
 
     render() {
@@ -33,11 +70,11 @@ export default class ProposeQuiz extends Component {
                         <hr style={{ backgroundColor: '#d8b1d6' }} />
                         <Form>
                             <NLProposeForm type='text' name='title' placeholder='문제명을 입력해주세요.' onChange={this.handleChange} />
-                            <ProposeForm label='희망 투표 기간(일)' type='text' name='date' onChange={this.handleChange} />
-                            <ProposeFormLg label='문제 출제 이유' rows='3' name='content' onChange={this.handleChange} />
-                            <ProposeSelect label='선택1' name='select1' onChange={this.handleChange} />
-                            <ProposeSelect label='선택2' name='select2' onChange={this.handleChange} />
-                            <FillButton type='submit' text='제출하기' onClick={this.proposeSubmit} />
+                            <ProposeForm label='희망 투표 기간(일)' type='text' name='period' onChange={this.handleChange} />
+                            <ProposeFormLg label='문제 출제 이유' rows='3' name='context' onChange={this.handleChange} />
+                            <ProposeSelect label='선택1' name='choice1' onChange={this.handleChange} />
+                            <ProposeSelect label='선택2' name='choice2' onChange={this.handleChange} />
+                            <FillButton type='submit' text='제출하기' onClick={this.propose} />
                         </Form>
                     </div>
                 </div>

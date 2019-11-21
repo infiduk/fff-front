@@ -7,6 +7,19 @@ import { MyPageList } from '../components/List'
 import coin from '../assets/my-coin.jpg'
 
 export default class MyPage extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            name: window.sessionStorage.getItem('name'),
+            birth: window.sessionStorage.getItem('birth'),
+            gender: window.sessionStorage.getItem('gender'),
+            token: window.sessionStorage.getItem('token'),
+            votes: window.sessionStorage.getItem('votes'),
+            choices: window.sessionStorage.getItem('choices'),
+            hpw: window.sessionStorage.getItem('hpw'),
+        }
+    }
+
     render() {
         return (
             <div>

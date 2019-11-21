@@ -10,6 +10,11 @@ export default class Game extends Component {
             isActive: false,
             choose: '',
             name: window.sessionStorage.getItem('name'),
+            birth: window.sessionStorage.getItem('birth'),
+            gender: window.sessionStorage.getItem('gender'),
+            token: window.sessionStorage.getItem('token'),
+            votes: window.sessionStorage.getItem('votes'),
+            choices: window.sessionStorage.getItem('choices'),
             hpw: window.sessionStorage.getItem('hpw'),
             // id: param에서 가져옴?
         }
