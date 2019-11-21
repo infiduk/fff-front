@@ -12,16 +12,25 @@ export default class SignUp extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            id: '',
-            password: '',
-            name: '',
+            name : '',
+            pw: '',
+            pwCheck: '',
+            birth: '',
             man: false,
-            woman: false
+            woman: false,
+            gender: ''
         }
     }
 
     loginSubmit = e => {
         e.preventDefault()
+
+        const { id, pw, pwCheck, name, birth, man, woman, gender } = this.state;
+
+        let userInfo = {
+            
+        }
+
         window.location.assign('/signIn')
     }
 
@@ -49,8 +58,8 @@ export default class SignUp extends Component {
                 <Form style={{ padding: 25, marginTop: 10 }} onSubmit={this.loginSubmit}>
                     <SignFormGroup controlId='Name' type='text' name='name' placeholder='Input your name' onChange={this.handleChange} />
                     <SignFormGroup controlId='Pw' type='password' name='pw' placeholder='******' onChange={this.handleChange} />
-                    <SignFormGroup controlId='PwCheck' type='password' name='pw' placeholder='******' onChange={this.handleChange} />
-                    <SignFormGroup controlId='Date' type='date' name='date' onChange={this.handleChange} />
+                    <SignFormGroup controlId='PwCheck' type='password' name='pwCheck' placeholder='******' onChange={this.handleChange} />
+                    <SignFormGroup controlId='Date' type='date' name='birth' onChange={this.handleChange} />
                     <div className='row' style={{ marginLeft: '25%', position: 'relative' }}>
                         <RadioForm name='gender' value='man' change={this.manChange} checked={this.state.man} label='남자' />
                         <RadioForm name='gender' value='woman' change={this.womanChange} checked={this.state.woman} label='여자' />
