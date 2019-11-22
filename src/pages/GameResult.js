@@ -27,23 +27,8 @@ export default class GameResult extends Component {
     // 투표 결과 조회 API
     // game이랑 같음
     result = async () => {
-        const { name, hpw } = this.state
-
-        let userInfo = {
-            user: {
-                'name': name,
-                'hpw': hpw
-            }
-        }
-
         try {
-            await fetch('http://ch-4ml.iptime.org:8080/vote/detail', {
-                method: 'GET',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(userInfo),
-            })
+            await fetch('http://ch-4ml.iptime.org:8080/vote/detail')
                 .then(res => {
                     console.log(res)
                     if (res.status !== 200)

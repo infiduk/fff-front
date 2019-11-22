@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import './App.css'
+import { CookiesProvider } from 'react-cookie'
 
 import Game from './pages/Game'
 import GameResult from './pages/GameResult'
@@ -31,6 +32,7 @@ function App() {
   }, [])
 
   return (
+    <CookiesProvider>
     <Router>
       <div>
         {logged && <Navbar />}
@@ -52,6 +54,7 @@ function App() {
         </Switch>
       </div>
     </Router>
+    </CookiesProvider>
   )
 }
 

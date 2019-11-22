@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Cookies from 'universal-cookie'
 
 import { Form } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -22,6 +23,7 @@ export default class SignIn extends Component {
         e.preventDefault()
 
         const { name, pw } = this.state
+        const cookies = new Cookies()
 
         let userInfo = {
             'name': name,
@@ -29,32 +31,52 @@ export default class SignIn extends Component {
         }
 
         try {
-            await fetch('http://ch-4ml.iptime.org:8080/login', {
+            const result = await fetch('http://ch-4ml.iptime.org:8080/login', {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                    'Cache': 'no-cache'
                 },
+                credentials: 'include',
                 body: JSON.stringify(userInfo),
-            })
-                .then(res => {
-                    if (res.status !== 200)
-                        console.log('실패')
-                    else {
-                        res.json()
-                            .then(json => {
-                                // 세션에 저장
-                                window.sessionStorage.setItem('name', json.data.user.name)
-                                window.sessionStorage.setItem('birth', json.data.user.birth)
-                                window.sessionStorage.setItem('gender', json.data.user.gender)
-                                window.sessionStorage.setItem('token', json.data.user.token)
-                                window.sessionStorage.setItem('votes', json.data.user.votes)
-                                window.sessionStorage.setItem('choices', json.data.user.choices)
-                                window.sessionStorage.setItem('hpw', json.data.user.hpw)
+            });
+            console.log(result);
+            window.location.assign('/');
+                // .then(res => {
+                //     if (res.status !== 200) {
+                //         console.log(res)
+                //         console.log('실패')
+                //     }
+                //     else {
+                //         res.json()
+                //             .then(json => {
+                //                 // 세션에 저장
+                //                 window.sessionStorage.setItem('name', json.data.user.name)
+                //                 window.sessionStorage.setItem('birth', json.data.user.birth)
+                //                 window.sessionStorage.setItem('gender', json.data.user.gender)
+                //                 window.sessionStorage.setItem('token', json.data.user.token)
+                //                 window.sessionStorage.setItem('votes', json.data.user.votes)
+                //                 window.sessionStorage.setItem('choices', json.data.user.choices)
+                //                 window.sessionStorage.setItem('hpw', json.data.user.hpw)
+
+                //                 // 쿠키에 저장
+                //                 // cookies.set('name', json.data.user.name, { path: '/' })
+                //                 // cookies.set('birth', json.data.user.birth, { path: '/' })
+                //                 // cookies.set('gender', json.data.user.gender, { path: '/' })
+                //                 // cookies.set('token', json.data.user.token, { path: '/' })
+                //                 // cookies.set('votes', json.data.user.votes, { path: '/' })
+                //                 // cookies.set('choices', json.data.user.choices, { path: '/' })
+                //                 // cookies.set('hpw', json.data.user.hpw, { path: '/' })
+
+                //                 // document.cookie = json.data.user.name
                                 
-                                window.location.assign('/')
-                            })
-                    }
-                })
+                //                 console.log(json.msg)
+                                
+                //                 
+                //             })
+                //     }
+                // })
         } catch (err) {
             console.log(err)
         }

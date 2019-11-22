@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Cookies from 'universal-cookie'
 
 import { ListGroup } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -21,37 +22,33 @@ export default class Main extends Component {
     }
 
     componentDidMount() {
-        // this.vote()
-        // .then(res => this.setState({ list: res.votes }))
+        this.vote()
+        const cookies = new Cookies()
+        console.log(cookies.get('name'))
+        console.log(document.cookie)
+        // .then(json => this.setState({ list: json.data.votes }))
         // .catch(err => console.log(err))
     }
 
     // 투표 목록 조회 API
     vote = async () => {
-        const { name, hpw } = this.state
-
-        let userInfo = {
-            user: {
-                'name': name,
-                'hpw': hpw
-            }
-        }
-
         try {
-            await fetch('http://ch-4ml.iptime.org:8080/vote', {
-                method: 'GET',
+            const result = await fetch('http://ch-4ml.iptime.org:8080/vote', {
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                    'Cache': 'no-cache'
                 },
-                body: JSON.stringify(userInfo),
-            })
-                .then(res => {
-                    console.log(res)
-                    if (res.status !== 200)
-                        console.log('실패')
-                    else return res.json()
-                })
-                .catch(err => console.log(err))
+                credentials: 'include',
+            });
+            console.log(result);
+                // .then(res => {
+                //     console.log(res)
+                //     if (res.status !== 200)
+                //         console.log('실패')
+                //     else return res.json()
+                // })
+                // .catch(err => console.log(err))
         } catch (err) {
             console.log(err)
         }
