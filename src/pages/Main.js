@@ -15,8 +15,6 @@ export default class Main extends Component {
 
     componentDidMount() {
         this.vote()
-        // .then(json => this.setState({ list: json.data.votes }))
-        // .catch(err => console.log(err))
     }
 
     // 투표 목록 조회 API
@@ -30,14 +28,8 @@ export default class Main extends Component {
                 },
                 credentials: 'include',
             })
-            console.log(res)
-                // .then(res => {
-                //     console.log(res)
-                //     if (res.status !== 200)
-                //         console.log('실패')
-                //     else return res.json()
-                // })
-                // .catch(err => console.log(err))
+            const json = await res.json()
+            this.setState({ list: json.data.votes })
         } catch (err) {
             console.log(err)
         }
@@ -50,9 +42,17 @@ export default class Main extends Component {
                     <h3 style={{ marginLeft: 10, color: '#d8b1d6' }}>퀴즈 목록</h3>
                     <ListGroup variant='flush'>
                         <br />
-                        <MainList href='/game' title='깐뷔 vs 덮뷔' date='19.11.08 23:59' users='960912' />
-                        <MainList title='이찬혁 vs 이수현' date='19.11.15 23:59' users='9659' />
-                        <MainList title='Give Love(AKMU) vs 200%(AKMU)' date='19.11.23 23:59' users='18' />
+                        {this.state.list.map(list => {
+                            return (
+                                <MainList
+                                    key={`list-${list.id}`}
+                                    href={`/game/${list.id}`}
+                                    title={list.title}
+                                    date={list.end}
+                                    category={list.category}
+                                />
+                            )
+                        })}
                         <hr />
                     </ListGroup>
                 </div>

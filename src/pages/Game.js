@@ -9,12 +9,13 @@ export default class Game extends Component {
         this.state = {
             isActive: false,
             choose: '',
-            id: '' // param에서 가져옴?
+            id: this.props.match.params.id
         }
     }
 
     componentDidMount() {
         this.detail()
+        console.log(this.state.id)
     }
 
     // 투표 상세 조회 API
@@ -33,13 +34,7 @@ export default class Game extends Component {
                 body: id,
             })
             console.log(res)
-                // .then(res => {
-                //     console.log(res)
-                //     if (res.status !== 200)
-                //         console.log('실패')
-                //     else return res.json()
-                // })
-                // .catch(err => console.log(err))
+
         } catch (err) {
             console.log(err)
         }

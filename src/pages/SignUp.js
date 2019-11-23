@@ -38,18 +38,16 @@ export default class SignUp extends Component {
         }
 
         try {
-            await fetch('http://ch-4ml.iptime.org:8080/user', {
+            const res = await fetch('http://ch-4ml.iptime.org:8080/user', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify(userInfo),
             })
-                .then(res => {
-                    (res.status === 200)
-                        ? window.location.assign('/signIn')
-                        : console.log('실패')
-                })
+            res.status === 200
+                ? window.location.assign('/signIn')
+                : console.log('실패')
         } catch (err) {
             console.log(err)
         }

@@ -46,7 +46,7 @@ function App() {
           <Route path='/myPage' component={MyPage} />
           <Route path='/proposeQuiz' component={ProposeQuiz} />
           {/* 투표 목록, 투표, 투표 결과, 히스토리 */}
-          <Route path='/game' component={Game} />
+          <Route path='/game/:id' component={Game} />
           <Route path='/gameResult' component={GameResult} />
           <Route path='/history' component={History} />
           {/* 문제 제안 리스트 */}

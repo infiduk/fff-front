@@ -11,9 +11,9 @@ export const MainList = props => {
             <div className='col'>
                 <h5 style={{ color: '#d8b1d6', marginLeft: -20 }}>{props.title}</h5>
                 <div className='row'> 
-                    <h6 style={{ marginTop: 5, flex: 0.5 }}>{props.date} 마감</h6>
+                    <h6 style={{ marginTop: 5, flex: 0.7 }}>{props.date} 마감</h6>
                     <div style={{ marginTop: 5, textAlign: 'right', flex: 0.5 }}>
-                        <h6 style={{ marginRight: 5 }}>{props.users}</h6>
+                        <h6 style={{ marginRight: 5 }}>{props.category}</h6>
                     </div>
                 </div>
             </div>

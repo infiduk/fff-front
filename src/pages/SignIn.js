@@ -29,7 +29,7 @@ export default class SignIn extends Component {
         }
 
         try {
-            const result = await fetch('http://ch-4ml.iptime.org:8080/login', {
+            const res = await fetch('http://ch-4ml.iptime.org:8080/login', {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',
@@ -39,31 +39,9 @@ export default class SignIn extends Component {
                 credentials: 'include',
                 body: JSON.stringify(userInfo),
             })
-            console.log(result);
-            window.location.assign('/')
-                // .then(res => {
-                //     if (res.status !== 200) {
-                //         console.log(res)
-                //         console.log('실패')
-                //     }
-                //     else {
-                //         res.json()
-                //             .then(json => {
-                //                 // 세션에 저장
-                //                 window.sessionStorage.setItem('name', json.data.user.name)
-                //                 window.sessionStorage.setItem('birth', json.data.user.birth)
-                //                 window.sessionStorage.setItem('gender', json.data.user.gender)
-                //                 window.sessionStorage.setItem('token', json.data.user.token)
-                //                 window.sessionStorage.setItem('votes', json.data.user.votes)
-                //                 window.sessionStorage.setItem('choices', json.data.user.choices)
-                //                 window.sessionStorage.setItem('hpw', json.data.user.hpw)
-                                
-                //                 console.log(json.msg)
-                                
-                //                 
-                //             })
-                //     }
-                // })
+            const json = await res.json()
+            window.sessionStorage.setItem('name', json.data.user.name)
+            await window.location.assign('/')
         } catch (err) {
             console.log(err)
         }
