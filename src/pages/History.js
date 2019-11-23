@@ -48,7 +48,6 @@ export default class History extends Component {
                     <ListGroup variant='flush'>
                         <br />
                         {this.state.list.map(list => {
-                            console.log(list.Value.id)
                             return (
                                 <HistoryList
                                     key={`list-${list.TxId}`}

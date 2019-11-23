@@ -41,6 +41,8 @@ export default class SignIn extends Component {
             })
             const json = await res.json()
             window.sessionStorage.setItem('name', json.data.user.name)
+            window.sessionStorage.setItem('token', json.data.user.token)
+            window.sessionStorage.setItem('votes', json.data.user.votes)
             window.location.assign('/')
         } catch (err) {
             console.log(err)

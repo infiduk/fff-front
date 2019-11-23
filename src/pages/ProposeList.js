@@ -9,16 +9,12 @@ export default class Propose extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            list: [],
-            postId: '',
-            value: 10,
+            list: []
         }
     }
 
     componentDidMount() {
         this.propose()
-        // .then(json => console.log(json))
-        // setState list 넣기
     }
 
     // 투표 제안 목록 조회 API
@@ -32,23 +28,17 @@ export default class Propose extends Component {
                 },
                 credentials: 'include',
             })
-            console.log(res)
-                // .then(res => {
-                //     if (res.status !== 200)
-                //         console.log('실패')
-                //     else return res.json()
-                // })
-                // .catch(err => console.log(err))
+            const json = await res.json()
+            this.setState({ list: json })
         } catch (err) {
             console.log(err)
         }
     }
 
     // 제안 추천 +1 API
-    recommend = async () => {
-        const { postId } = this.state
+    choice = async e => {
         try {
-            const res = await fetch('http://ch-4ml.iptime.org:8080/post/recommend', {
+            await fetch('http://ch-4ml.iptime.org:8080/post/recommend', {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',
@@ -56,15 +46,9 @@ export default class Propose extends Component {
                     'Cache': 'no-cache'
                 },
                 credentials: 'include',
-                body: postId
+                body: JSON.stringify({'postId': e.target.name})
             })
-            console.log(res)
-            // .then(res => {
-            //     (res.status !== 200)
-            //     ? console.log('+1')
-            //     : console.log('실패')
-            // })
-
+            window.location.assign('/propose')
         } catch(err) {
             console.log(err)
         }
@@ -79,9 +63,17 @@ export default class Propose extends Component {
                         <Button href='/proposeQuiz' style={{ marginLeft: 30, backgroundColor: '#fff', borderColor: '#d8b1d6', color: '#d8b1d6' }}>문제 제안</Button>
                     </div>
                     <ListGroup variant='flush'>
-                        <ProposeList title='불타오르네 vs 상남자' date='7일' user='최또르' value={this.state.value} onClick={this.recommend} />
-                        <ProposeList title='내가 7억 vs 최애가 7억' date='5일' user='포엠엘' />
-                        <ProposeList title='으르렁 vs Love Shot' date='7일' user='쏘' />
+                        {this.state.list.map(list => {
+                            return (
+                                <ProposeList
+                                    key={`list-${list._id}`}
+                                    title={`${list.choice1} vs ${list.choice2}`}
+                                    period={list.period}
+                                    name={list._id}
+                                    user={list.writer}
+                                    value={list.recommend} onClick={this.choice} />
+                            )
+                        })}
                         <hr />
                     </ListGroup>
                 </div>

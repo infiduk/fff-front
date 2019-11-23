@@ -24,10 +24,9 @@ export default class NavbarClass extends Component {
             </Nav>
             <Nav>         
               <Nav.Link href='/result' style={{ color: '#d5aad4' }}>게임 결과 목록</Nav.Link>
-              <Nav.Link href='/myPage' style={{ color: '#d5aad4' }}>내 정보</Nav.Link>
+              <Nav.Link href='/propose' style={{ color: '#d5aad4' }}>문제 제안 목록</Nav.Link>
               <Nav.Link href='/proposeQuiz' style={{ color: '#d5aad4' }}>문제 제안</Nav.Link>
-              <Nav.Link href='/propose' style={{ color: '#d5aad4' }}>문제 제안리스트</Nav.Link>
-              <Nav.Link href='/history' style={{ color: '#d5aad4' }}>투표 이력</Nav.Link>
+              <Nav.Link href='/myPage' style={{ color: '#d5aad4' }}>내 정보</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Navbar>

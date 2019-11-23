@@ -54,7 +54,7 @@ export default class Game extends Component {
         console.log(voteInfo)
         try {
             this.setState({ isActive: true })
-            const res = await fetch('http://ch-4ml.iptime.org:8080/vote/choose', {
+            await fetch('http://ch-4ml.iptime.org:8080/vote/choose', {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',

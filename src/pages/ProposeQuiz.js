@@ -38,7 +38,7 @@ export default class ProposeQuiz extends Component {
         }
 
         try {
-            const res = await fetch('http://ch-4ml.iptime.org:8080/post', {
+            await fetch('http://ch-4ml.iptime.org:8080/post', {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',
@@ -48,12 +48,7 @@ export default class ProposeQuiz extends Component {
                 credentials: 'include',
                 body: JSON.stringify(proposeInfo)
             })
-            console.log(res)
-                // .then(res => {
-                //     (res.status === 200)
-                //         ? window.location.assign('/propose')
-                //         : console.log('실패')
-                // })
+            window.location.assign('/propose')
         } catch (err) {
             console.log(err)
         }

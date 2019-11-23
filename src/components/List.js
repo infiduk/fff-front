@@ -58,12 +58,13 @@ export const ProposeList = props => {
                     <h5 style={{ color: '#d8b1d6' }}>{props.title}</h5>
                     <Button
                         style={{ backgroundColor: '#fff', color: '#d8b1d6', borderColor: '#d8b1d6', marginLeft: 10, alignSelf: 'flex-start' }}
+                        name={props.name}
                         onClick={props.onClick}>UP</Button>
                     <h5 style={{ marginLeft: 5, alignSelf: 'flex-end' }}>{props.value}</h5>
 
                 </div>
                 <div className='row'> 
-                    <h6 style={{ marginTop: 5, flex: 0.5 }}>투표기간: {props.date}</h6>
+                    <h6 style={{ marginTop: 5, flex: 0.5 }}>투표기간: {props.period}</h6>
                     <div style={{ marginTop: 5, textAlign: 'right', flex: 0.5 }}>
                         <h6 style={{ marginRight: 5 }}>작성자: {props.user}</h6>
                     </div>
