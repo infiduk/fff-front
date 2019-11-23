@@ -9,32 +9,37 @@ export default class Game extends Component {
         this.state = {
             isActive: false,
             choose: '',
-            name: window.sessionStorage.getItem('name'),
-            birth: window.sessionStorage.getItem('birth'),
-            gender: window.sessionStorage.getItem('gender'),
-            token: window.sessionStorage.getItem('token'),
-            votes: window.sessionStorage.getItem('votes'),
-            choices: window.sessionStorage.getItem('choices'),
-            hpw: window.sessionStorage.getItem('hpw'),
-            // id: param에서 가져옴?
+            id: '' // param에서 가져옴?
         }
     }
 
     componentDidMount() {
-        // this.detail()
+        this.detail()
     }
 
     // 투표 상세 조회 API
     detail = async () => {
+        const { id } = this.state
+
         try {
-            await fetch('http://ch-4ml.iptime.org:8080/vote/detail')
-                .then(res => {
-                    console.log(res)
-                    if (res.status !== 200)
-                        console.log('실패')
-                    else return res.json()
-                })
-                .catch(err => console.log(err))
+            const res = await fetch('http://ch-4ml.iptime.org:8080/vote/detail', {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                    'Cache': 'no-cache'
+                },
+                credentials: 'include',
+                body: id,
+            })
+            console.log(res)
+                // .then(res => {
+                //     console.log(res)
+                //     if (res.status !== 200)
+                //         console.log('실패')
+                //     else return res.json()
+                // })
+                // .catch(err => console.log(err))
         } catch (err) {
             console.log(err)
         }
@@ -42,31 +47,30 @@ export default class Game extends Component {
 
     // 투표 API
     vote = async () => {
-        const { choose, name, hpw, id } = this.state
+        const { choose, id } = this.state
 
         let voteInfo = {
-            user: {
-                'name': name,
-                'hpw': hpw
-            },
             'id': id,
-            'choose': choose,
-            'name': name
+            'choose': choose
         }
 
         try {
             this.setState({ isActive: true })
-            await fetch('http://ch-4ml.iptime.org:8080/vote/choose', {
+            const res = await fetch('http://ch-4ml.iptime.org:8080/vote/choose', {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                    'Cache': 'no-cache'
                 },
+                credentials: 'include',
                 body: JSON.stringify(voteInfo)
             })
-                .then(res => {
-                    if (res.status !== 200) console.log('실패')
-                    else window.location.assign('/')
-                })
+            console.log(res)
+                // .then(res => {
+                //     if (res.status !== 200) console.log('실패')
+                //     else window.location.assign('/')
+                // })
         } catch (err) {
             console.log(err)
         }

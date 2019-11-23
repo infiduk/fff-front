@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import Cookies from 'universal-cookie'
 
 import { ListGroup } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -10,22 +9,12 @@ export default class Main extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            list: [],
-            name: window.sessionStorage.getItem('name'),
-            birth: window.sessionStorage.getItem('birth'),
-            gender: window.sessionStorage.getItem('gender'),
-            token: window.sessionStorage.getItem('token'),
-            votes: window.sessionStorage.getItem('votes'),
-            choices: window.sessionStorage.getItem('choices'),
-            hpw: window.sessionStorage.getItem('hpw'),
+            list: []
         }
     }
 
     componentDidMount() {
         this.vote()
-        const cookies = new Cookies()
-        console.log(cookies.get('name'))
-        console.log(document.cookie)
         // .then(json => this.setState({ list: json.data.votes }))
         // .catch(err => console.log(err))
     }
@@ -33,15 +22,15 @@ export default class Main extends Component {
     // 투표 목록 조회 API
     vote = async () => {
         try {
-            const result = await fetch('http://ch-4ml.iptime.org:8080/vote', {
+            const res = await fetch('http://ch-4ml.iptime.org:8080/vote', {
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json',
                     'Cache': 'no-cache'
                 },
                 credentials: 'include',
-            });
-            console.log(result);
+            })
+            console.log(res)
                 // .then(res => {
                 //     console.log(res)
                 //     if (res.status !== 200)

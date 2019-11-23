@@ -43,7 +43,7 @@ export const HistoryList = props => {
             <div className='col'>
                 <h5 style={{ color: '#d8b1d6', marginLeft: -20 }}>{props.tx}</h5>
                 <div className='row'> 
-                    <h6 style={{ marginTop: 5 }}>투표 제목: {props.title}</h6>
+                    <h6 style={{ marginTop: 5 }}>투표자: {props.user}</h6>
                 </div>
             </div>
         </ListGroup.Item>

@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import Cookies from 'universal-cookie'
 
 import { Form } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -23,7 +22,6 @@ export default class SignIn extends Component {
         e.preventDefault()
 
         const { name, pw } = this.state
-        const cookies = new Cookies()
 
         let userInfo = {
             'name': name,
@@ -40,9 +38,9 @@ export default class SignIn extends Component {
                 },
                 credentials: 'include',
                 body: JSON.stringify(userInfo),
-            });
+            })
             console.log(result);
-            window.location.assign('/');
+            window.location.assign('/')
                 // .then(res => {
                 //     if (res.status !== 200) {
                 //         console.log(res)
@@ -59,17 +57,6 @@ export default class SignIn extends Component {
                 //                 window.sessionStorage.setItem('votes', json.data.user.votes)
                 //                 window.sessionStorage.setItem('choices', json.data.user.choices)
                 //                 window.sessionStorage.setItem('hpw', json.data.user.hpw)
-
-                //                 // 쿠키에 저장
-                //                 // cookies.set('name', json.data.user.name, { path: '/' })
-                //                 // cookies.set('birth', json.data.user.birth, { path: '/' })
-                //                 // cookies.set('gender', json.data.user.gender, { path: '/' })
-                //                 // cookies.set('token', json.data.user.token, { path: '/' })
-                //                 // cookies.set('votes', json.data.user.votes, { path: '/' })
-                //                 // cookies.set('choices', json.data.user.choices, { path: '/' })
-                //                 // cookies.set('hpw', json.data.user.hpw, { path: '/' })
-
-                //                 // document.cookie = json.data.user.name
                                 
                 //                 console.log(json.msg)
                                 

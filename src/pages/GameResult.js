@@ -10,13 +10,7 @@ export default class GameResult extends Component {
         super(props)
         this.state = {
             setShow: false,
-            name: window.sessionStorage.getItem('name'),
-            birth: window.sessionStorage.getItem('birth'),
-            gender: window.sessionStorage.getItem('gender'),
-            token: window.sessionStorage.getItem('token'),
-            votes: window.sessionStorage.getItem('votes'),
-            choices: window.sessionStorage.getItem('choices'),
-            hpw: window.sessionStorage.getItem('hpw'),
+            id: '' // param에서 가져옴?
         }
     }
 
@@ -27,22 +21,34 @@ export default class GameResult extends Component {
     // 투표 결과 조회 API
     // game이랑 같음
     result = async () => {
+        const { id } = this.state
+
         try {
-            await fetch('http://ch-4ml.iptime.org:8080/vote/detail')
-                .then(res => {
-                    console.log(res)
-                    if (res.status !== 200)
-                        console.log('실패')
-                    else return res.json()
-                })
-                .catch(err => console.log(err))
+            const res = await fetch('http://ch-4ml.iptime.org:8080/vote/detail', {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                    'Cache': 'no-cache'
+                },
+                credentials: 'include',
+                body: id
+            })
+            console.log(res)
+                // .then(res => {
+                //     console.log(res)
+                //     if (res.status !== 200)
+                //         console.log('실패')
+                //     else return res.json()
+                // })
+                // .catch(err => console.log(err))
         } catch (err) {
             console.log(err)
         }
     }
 
-    handleGoBack = () => {
-        window.location.assign('/')
+    handleGoHistory = () => {
+        window.location.assign('/history')
     }
 
     handleClose = () => {
@@ -70,7 +76,7 @@ export default class GameResult extends Component {
                             <ProgressBar striped variant='warning' now={50} label='6000표' style={{ height: '40px', marginTop: 5, marginLeft: 10, marginRight: 10, marginBottom: 10 }} />
                         </div>
                     </div>
-                    <Button type='button' style={{ padding: 10, marginTop: 25, backgroundColor: '#d8b1d6', borderColor: '#d8b1d6' }} onClick={this.handleGoBack} block>메인화면</Button>
+                    <Button type='button' style={{ padding: 10, marginTop: 25, backgroundColor: '#d8b1d6', borderColor: '#d8b1d6' }} onClick={this.handleGoHistory} block>히스토리 조회</Button>
                     {/* <hr />
                 <h6 style={{ textAlign: 'center' }}>리매치를 위해 기여된 티켓 수 : 10033개</h6>
                 <Button type='button' style={{ padding: 10, marginTop: 25, backgroundColor: '#fff', borderColor: '#d8b1d6', color: '#d8b1d6' }} onClick={this.handleShow} block>리벤지 신청</Button> */}

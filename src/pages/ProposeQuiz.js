@@ -15,7 +15,6 @@ export default class ProposeQuiz extends Component {
             period: '',
             choice1: '',
             choice2: '',
-            writer: window.sessionStorage.getItem('name')
         }
     }
 
@@ -26,35 +25,35 @@ export default class ProposeQuiz extends Component {
     propose = async e => {
         e.preventDefault()
 
-        const { title, context, period, choice1, choice2, writer } = this.state
+        const { title, context, period, choice1, choice2 } = this.state
 
         // 비밀번호 체크 넣기
 
         let proposeInfo = {
-            user: {
-                'name': writer
-            },
             'title': title,
             'conetxt': context,
             'period': period,
             'choice1': choice1,
             'choice2': choice2,
-            'writer': writer
         }
 
         try {
-            await fetch('http://ch-4ml.iptime.org:8080/post', {
+            const res = await fetch('http://ch-4ml.iptime.org:8080/post', {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                    'Cache': 'no-cache'
                 },
-                body: JSON.stringify(proposeInfo),
+                credentials: 'include',
+                body: JSON.stringify(proposeInfo)
             })
-                .then(res => {
-                    (res.status === 200)
-                        ? window.location.assign('/propose')
-                        : console.log('실패')
-                })
+            console.log(res)
+                // .then(res => {
+                //     (res.status === 200)
+                //         ? window.location.assign('/propose')
+                //         : console.log('실패')
+                // })
         } catch (err) {
             console.log(err)
         }

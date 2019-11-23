@@ -12,32 +12,33 @@ export default class Propose extends Component {
             list: [],
             postId: '',
             value: 10,
-            name: window.sessionStorage.getItem('name'),
-            birth: window.sessionStorage.getItem('birth'),
-            gender: window.sessionStorage.getItem('gender'),
-            token: window.sessionStorage.getItem('token'),
-            votes: window.sessionStorage.getItem('votes'),
-            choices: window.sessionStorage.getItem('choices'),
-            hpw: window.sessionStorage.getItem('hpw'),
         }
     }
 
     componentDidMount() {
         this.propose()
-        .then(json => console.log(json))
+        // .then(json => console.log(json))
         // setState list 넣기
     }
 
     // 투표 제안 목록 조회 API
     propose = async () => {
         try {
-            await fetch('http://ch-4ml.iptime.org:8080/post')
-                .then(res => {
-                    if (res.status !== 200)
-                        console.log('실패')
-                    else return res.json()
-                })
-                .catch(err => console.log(err))
+            const res = await fetch('http://ch-4ml.iptime.org:8080/post', {
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                    'Cache': 'no-cache'
+                },
+                credentials: 'include',
+            })
+            console.log(res)
+                // .then(res => {
+                //     if (res.status !== 200)
+                //         console.log('실패')
+                //     else return res.json()
+                // })
+                // .catch(err => console.log(err))
         } catch (err) {
             console.log(err)
         }
@@ -45,28 +46,24 @@ export default class Propose extends Component {
 
     // 제안 추천 +1 API
     recommend = async () => {
-        const { name, postId } = this.state;
-
-        let userInfo = {
-            user: {
-                'name': name
-            },
-            'postId': postId
-        }
-
+        const { postId } = this.state
         try {
-            await fetch('http://ch-4ml.iptime.org:8080/post/recommend', {
+            const res = await fetch('http://ch-4ml.iptime.org:8080/post/recommend', {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                    'Cache': 'no-cache'
                 },
-                body: JSON.stringify(userInfo),
+                credentials: 'include',
+                body: postId
             })
-            .then(res => {
-                (res.status !== 200)
-                ? console.log('+1')
-                : console.log('실패')
-            })
+            console.log(res)
+            // .then(res => {
+            //     (res.status !== 200)
+            //     ? console.log('+1')
+            //     : console.log('실패')
+            // })
 
         } catch(err) {
             console.log(err)
