@@ -41,7 +41,7 @@ export default class SignIn extends Component {
             })
             const json = await res.json()
             window.sessionStorage.setItem('name', json.data.user.name)
-            await window.location.assign('/')
+            window.location.assign('/')
         } catch (err) {
             console.log(err)
         }

@@ -27,9 +27,9 @@ export const ResultList = props => {
             <div className='col'>
                 <h5 style={{ color: '#d8b1d6', marginLeft: -20 }}>{props.title}</h5>
                 <div className='row'> 
-                    <h6 style={{ marginTop: 5, flex: 0.5 }}>{props.winner} 승</h6>
+                    <h6 style={{ marginTop: 5, flex: 0.7 }}>{props.winner}</h6>
                     <div style={{ marginTop: 5, textAlign: 'right', flex: 0.5 }}>
-                        <h6 style={{ marginRight: 5 }}>{props.users}</h6>
+                        <h6 style={{ marginRight: 5 }}>{props.category}</h6>
                     </div>
                 </div>
             </div>
@@ -39,11 +39,11 @@ export const ResultList = props => {
 
 export const HistoryList = props => {
     return (
-        <ListGroup.Item>
+        <ListGroup.Item style={{ overflowWrap: 'break-word' }}>
             <div className='col'>
                 <h5 style={{ color: '#d8b1d6', marginLeft: -20 }}>{props.tx}</h5>
                 <div className='row'> 
-                    <h6 style={{ marginTop: 5 }}>투표자: {props.user}</h6>
+                    <h6 style={{ marginTop: 5 }}>시간: {props.timestamp}</h6>
                 </div>
             </div>
         </ListGroup.Item>

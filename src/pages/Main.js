@@ -43,7 +43,7 @@ export default class Main extends Component {
                     <ListGroup variant='flush'>
                         <br />
                         {this.state.list.map(list => {
-                            return (
+                            return list.status === '1' && (
                                 <MainList
                                     key={`list-${list.id}`}
                                     href={`/game/${list.id}`}

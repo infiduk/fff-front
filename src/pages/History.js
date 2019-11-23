@@ -10,14 +10,12 @@ export default class History extends Component {
         super(props)
         this.state = {
             list: [],
-            id :'' // param에서 가져옴?
+            id : this.props.match.params.id
         }
     }
 
     componentDidMount() {
         this.history()
-        // .then(res => this.setState({ list: res.votes }))
-        // .catch(err => console.log(err))
     }
 
     // 투표 히스토리 조회 API
@@ -33,16 +31,10 @@ export default class History extends Component {
                     'Cache': 'no-cache'
                 },
                 credentials: 'include',
-                body: id
+                body: JSON.stringify({'id': id})
             })
-            console.log(res)
-                // .then(res => {
-                //     console.log(res)
-                //     if (res.status !== 200)
-                //         console.log('실패')
-                //     else return res.json()
-                // })
-                // .catch(err => console.log(err))
+            const json = await res.json()
+            this.setState({ list: json.data })
         } catch (err) {
             console.log(err)
         }
@@ -55,12 +47,16 @@ export default class History extends Component {
                     <h3 style={{ marginLeft: 10, color: '#d8b1d6' }}>투표 이력 목록</h3>
                     <ListGroup variant='flush'>
                         <br />
-                        <HistoryList tx='0x2da53bd2ba397e2a691' user='깐뷔 vs 덮뷔' />
-                        <HistoryList tx='0xd43ea3cad6b8723a2a5' user='이찬혁 vs 이수현' />
-                        <HistoryList tx='0xa65cea9a85cd751ae4c' user='Give Love(AKMU) vs 200%(AKMU)' />
-                        <HistoryList tx='0x2da53bd2b65cea96921' user='깐뷔 vs 덮뷔' />
-                        <HistoryList tx='0xd485cd751ad6b8723a5' user='깐뷔 vs 덮뷔' />
-                        <HistoryList tx='0xa65c53bd2b65d7514c1' user='깐뷔 vs 덮뷔' />
+                        {this.state.list.map(list => {
+                            console.log(list.Value.id)
+                            return (
+                                <HistoryList
+                                    key={`list-${list.TxId}`}
+                                    tx={list.TxId}
+                                    timestamp={list.Timestamp}
+                                />
+                            )
+                        })}
                         <hr />
                     </ListGroup>
                 </div>

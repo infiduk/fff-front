@@ -3,23 +3,20 @@ import React, { Component } from 'react'
 import { Button, ProgressBar } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
-import { ReMatchModal } from '../components/Modal'
-
 export default class GameResult extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            setShow: false,
-            id: '' // param에서 가져옴?
+            id: this.props.match.params.id,
+            detail: []
         }
     }
 
     componentDidMount() {
-        // this.result()
+        this.result()
     }
 
     // 투표 결과 조회 API
-    // game이랑 같음
     result = async () => {
         const { id } = this.state
 
@@ -32,54 +29,39 @@ export default class GameResult extends Component {
                     'Cache': 'no-cache'
                 },
                 credentials: 'include',
-                body: id
+                body: JSON.stringify({'id': id})
             })
-            console.log(res)
-                // .then(res => {
-                //     console.log(res)
-                //     if (res.status !== 200)
-                //         console.log('실패')
-                //     else return res.json()
-                // })
-                // .catch(err => console.log(err))
+            const json = await res.json()
+            this.setState({ detail: json })
         } catch (err) {
             console.log(err)
         }
     }
 
     handleGoHistory = () => {
-        window.location.assign('/history')
-    }
-
-    handleClose = () => {
-        this.setState({ setShow: false })
-    }
-
-    handleShow = () => {
-        this.setState({ setShow: true })
+        window.location.assign(`/history/${this.state.id}`)
     }
 
     render() {
-        const { setShow } = this.state
+        const { detail } = this.state
+
+        let totalVotes = detail.count1 + detail.count2
+        let votes1 = ((detail.count1 / totalVotes) * 100).toFixed(1)
+        let votes2 = ((detail.count2 / totalVotes) * 100).toFixed(1)
         return (
             <div>
                 <div style={{ margin: 25 }}>
-                    <ReMatchModal
-                        show={setShow} onHide={this.handleClose} formOnSubmit={this.loginSubmit} formHandleChange={this.handleChange} btnOnClick={this.handleClose} />
-                    <h2 style={{ marginTop: 30, marginBottom: 30, textAlign: 'center', color: '#d8b1d6' }}>깐뷔 vs. 덮뷔</h2>
+                    <h2 style={{ marginTop: 30, marginBottom: 30, textAlign: 'center', color: '#d8b1d6' }}>{detail.title}</h2>
                     <div style={{ padding: 10, backgroundColor: '#fafafa' }}>
                         <div style={{ padding: 20 }}>
-                            <h5>깐뷔</h5>
-                            <ProgressBar striped variant='info' now={100} label='12030표' style={{ height: '40px', marginTop: 10, marginLeft: 10, marginRight: 10, marginBottom: 5 }} />
+                            <h5>{detail.choice1}</h5>
+                            <ProgressBar striped variant='info' now={votes1} label={`${detail.count1}표`} style={{ height: '40px', marginTop: 10, marginLeft: 10, marginRight: 10, marginBottom: 5 }} />
                             <br />
-                            <h5>덮뷔</h5>
-                            <ProgressBar striped variant='warning' now={50} label='6000표' style={{ height: '40px', marginTop: 5, marginLeft: 10, marginRight: 10, marginBottom: 10 }} />
+                            <h5>{detail.choice2}</h5>
+                            <ProgressBar striped variant='warning' now={votes2} label={`${detail.count2}표`} style={{ height: '40px', marginTop: 5, marginLeft: 10, marginRight: 10, marginBottom: 10 }} />
                         </div>
                     </div>
                     <Button type='button' style={{ padding: 10, marginTop: 25, backgroundColor: '#d8b1d6', borderColor: '#d8b1d6' }} onClick={this.handleGoHistory} block>히스토리 조회</Button>
-                    {/* <hr />
-                <h6 style={{ textAlign: 'center' }}>리매치를 위해 기여된 티켓 수 : 10033개</h6>
-                <Button type='button' style={{ padding: 10, marginTop: 25, backgroundColor: '#fff', borderColor: '#d8b1d6', color: '#d8b1d6' }} onClick={this.handleShow} block>리벤지 신청</Button> */}
                 </div>
             </div>
         )

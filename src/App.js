@@ -47,8 +47,8 @@ function App() {
           <Route path='/proposeQuiz' component={ProposeQuiz} />
           {/* 투표 목록, 투표, 투표 결과, 히스토리 */}
           <Route path='/game/:id' component={Game} />
-          <Route path='/gameResult' component={GameResult} />
-          <Route path='/history' component={History} />
+          <Route path='/gameResult/:id' component={GameResult} />
+          <Route path='/history/:id' component={History} />
           {/* 문제 제안 리스트 */}
           <Route path='/propose' component={Propose} />
         </Switch>

@@ -15,12 +15,9 @@ export default class Result extends Component {
 
     componentDidMount() {
         this.result()
-        // .then(res => this.setState({ list: res.votes }))
-        // .catch(err => console.log(err))
     }
 
     // 투표 완료 목록 조회 API
-    // Main 이랑 같음
     result = async () => {
         try {
             const res = await fetch('http://ch-4ml.iptime.org:8080/vote', {
@@ -31,14 +28,8 @@ export default class Result extends Component {
                 },
                 credentials: 'include',
             })
-            console.log(res)
-                // .then(res => {
-                //     console.log(res)
-                //     if (res.status !== 200)
-                //         console.log('실패')
-                //     else return res.json()
-                // })
-                // .catch(err => console.log(err))
+            const json = await res.json()
+            this.setState({ list: json.data.votes })
         } catch (err) {
             console.log(err)
         }
@@ -51,9 +42,15 @@ export default class Result extends Component {
                     <h3 style={{ marginLeft: 10, color: '#d8b1d6' }}>퀴즈 결과 목록</h3>
                     <ListGroup variant='flush'>
                         <br />
-                        <ResultList href='/gameResult' title='깐뷔 vs 덮뷔' winner='깐뷔' users='960912' />
-                        <ResultList title='이찬혁 vs 이수현' winner='이찬혁' users='9659' />
-                        <ResultList title='Give Love(AKMU) vs 200%(AKMU)' winner='Give Love(AKMU)' users='18' />
+                        {this.state.list.map(list => {
+                            return list.status === '2' && (
+                                <ResultList
+                                    key={`list-${list.id}`}
+                                    href={`/gameResult/${list.id}`}
+                                    title={list.title}
+                                    winner={list.result} category={list.category} />
+                            )
+                        })}
                         <hr />
                     </ListGroup>
                 </div>

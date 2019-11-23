@@ -51,6 +51,8 @@ export const SquareButton = props => {
             size='lg'
             // href={props.href}
             onClick={props.onClick}
+            name={props.name}
+            value={props.value}
             style={{ width: '40vw', height: '40vw', fontWeight: '900', fontSize: '1.5rem', display: 'table-cell', backgroundColor: '#fff', borderColor: '#d8b1d6', color: '#d8b1d6' }}>
             {props.label}
         </Button>
