@@ -64,6 +64,7 @@ export default class Game extends Component {
                 body: JSON.stringify(voteInfo)
             })
             const json = await res.json()
+            window.sessionStorage.setItem('token', json.data.user.token)
             window.sessionStorage.setItem('votes', json.data.user.votes)
             window.location.assign('/')
         } catch (err) {
