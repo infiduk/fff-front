@@ -42,6 +42,10 @@ export default class GameResult extends Component {
         window.location.assign(`/history/${this.state.id}`)
     }
 
+    handleGoWinner = () => {
+        window.location.assign(`/winner/${this.state.id}`)
+    }
+
     render() {
         const { detail } = this.state
 
@@ -62,6 +66,7 @@ export default class GameResult extends Component {
                         </div>
                     </div>
                     <Button type='button' style={{ padding: 10, marginTop: 25, backgroundColor: '#d8b1d6', borderColor: '#d8b1d6' }} onClick={this.handleGoHistory} block>히스토리 조회</Button>
+                    <Button type='button' style={{ padding: 10, marginTop: 25, backgroundColor: '#d8b1d6', borderColor: '#d8b1d6' }} onClick={this.handleGoWinner} block>당첨자 조회</Button>
                 </div>
             </div>
         )

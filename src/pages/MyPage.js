@@ -12,12 +12,13 @@ export default class MyPage extends Component {
         this.state = {
             name: window.sessionStorage.getItem('name'),
             token: window.sessionStorage.getItem('token'),
-            votes: window.sessionStorage.getItem('votes')
+            votes: window.sessionStorage.getItem('votes') || ''
         }
     }
 
     render() {
         const { name, token, votes } = this.state
+        const list = votes.split(',')
         return (
             <div>
                 <div style={{ margin: 25, color: '#d8b1d6', flex: 1 }}>
@@ -44,9 +45,11 @@ export default class MyPage extends Component {
                             <h6 style={{ marginLeft: 5, color: '#000' }}>참여한 문제</h6>
                         </div>
                         <ListGroup style={{ marginLeft: 5, marginRight: 5 }}>
-                            <MyPageList href='/gameResult' title='깐뷔 vs 덮뷔' />
-                            <MyPageList title='이찬혁 vs 이수현' />
-                            <MyPageList title='Give Love(AKMU) vs 200%(AKMU)' />
+                            {list.map(list => {
+                                return (
+                                    <MyPageList key={list.toString()} title={list} />
+                                )
+                            })}
                             <hr />
                         </ListGroup>
                     </div>

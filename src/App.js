@@ -9,6 +9,7 @@ import GameResult from './pages/GameResult'
 import Main from './pages/Main'
 import Result from './pages/Result'
 import History from './pages/History'
+import Winner from './pages/Winner'
 
 import SignIn from './pages/SignIn'
 import SignUp from './pages/SignUp'
@@ -45,10 +46,11 @@ function App() {
           <Route path='/signIn' component={SignIn} />
           <Route path='/myPage' component={MyPage} />
           <Route path='/proposeQuiz' component={ProposeQuiz} />
-          {/* 투표 목록, 투표, 투표 결과, 히스토리 */}
+          {/* 투표 목록, 투표, 투표 결과, 히스토리, 당첨자 조회 */}
           <Route path='/game/:id' component={Game} />
           <Route path='/gameResult/:id' component={GameResult} />
           <Route path='/history/:id' component={History} />
+          <Route path='/winner/:id' component={Winner} />
           {/* 문제 제안 리스트 */}
           <Route path='/propose' component={Propose} />
         </Switch>

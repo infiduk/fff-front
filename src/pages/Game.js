@@ -34,7 +34,6 @@ export default class Game extends Component {
             })
             const json = await res.json()
             this.setState({ detail: json })
-            console.log(json)
         } catch (err) {
             console.log(err)
         }
@@ -54,7 +53,7 @@ export default class Game extends Component {
         console.log(voteInfo)
         try {
             this.setState({ isActive: true })
-            await fetch('http://ch-4ml.iptime.org:8080/vote/choose', {
+            const res = await fetch('http://ch-4ml.iptime.org:8080/vote/choose', {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',
@@ -64,6 +63,8 @@ export default class Game extends Component {
                 credentials: 'include',
                 body: JSON.stringify(voteInfo)
             })
+            const json = await res.json()
+            window.sessionStorage.setItem('votes', json.data.user.votes)
             window.location.assign('/')
         } catch (err) {
             console.log(err)
