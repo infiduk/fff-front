@@ -15,7 +15,7 @@ export const MainList = props => {
                     <div style={{ marginTop: 5, textAlign: 'right', flex: 0.5 }}>
                         {props.category === '0'
                             ? <h6 style={{ marginRight: 5 }}>무료투표</h6>
-                            : <h6 style={{ marginRight: 5 }}>유료투표</h6>
+                            : <h6 style={{ marginRight: 5 }}>무료투표</h6>
                         }
                     </div>
                 </div>
@@ -34,7 +34,7 @@ export const ResultList = props => {
                     <div style={{ marginTop: 5, textAlign: 'right', flex: 0.5 }}>
                         {props.category === '0'
                             ? <h6 style={{ marginRight: 5 }}>무료투표</h6>
-                            : <h6 style={{ marginRight: 5 }}>유료투표</h6>
+                            : <h6 style={{ marginRight: 5 }}>무료투표</h6>
                         }
                     </div>
                 </div>
