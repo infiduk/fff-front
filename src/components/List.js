@@ -10,10 +10,13 @@ export const MainList = props => {
         <ListGroup.Item action href={props.href}>
             <div className='col'>
                 <h5 style={{ color: '#d8b1d6', marginLeft: -20 }}>{props.title}</h5>
-                <div className='row'> 
+                <div className='row'>
                     <h6 style={{ marginTop: 5, flex: 0.7 }}>{props.date} 마감</h6>
                     <div style={{ marginTop: 5, textAlign: 'right', flex: 0.5 }}>
-                        <h6 style={{ marginRight: 5 }}>{props.category}</h6>
+                        {props.category === '0'
+                            ? <h6 style={{ marginRight: 5 }}>무료투표</h6>
+                            : <h6 style={{ marginRight: 5 }}>유료투표</h6>
+                        }
                     </div>
                 </div>
             </div>
@@ -26,10 +29,13 @@ export const ResultList = props => {
         <ListGroup.Item action href={props.href}>
             <div className='col'>
                 <h5 style={{ color: '#d8b1d6', marginLeft: -20 }}>{props.title}</h5>
-                <div className='row'> 
+                <div className='row'>
                     <h6 style={{ marginTop: 5, flex: 0.7 }}>{props.winner}</h6>
                     <div style={{ marginTop: 5, textAlign: 'right', flex: 0.5 }}>
-                        <h6 style={{ marginRight: 5 }}>{props.category}</h6>
+                        {props.category === '0'
+                            ? <h6 style={{ marginRight: 5 }}>무료투표</h6>
+                            : <h6 style={{ marginRight: 5 }}>유료투표</h6>
+                        }
                     </div>
                 </div>
             </div>
@@ -42,7 +48,7 @@ export const HistoryList = props => {
         <ListGroup.Item style={{ overflowWrap: 'break-word' }}>
             <div className='col'>
                 <h5 style={{ color: '#d8b1d6', marginLeft: -20 }}>{props.tx}</h5>
-                <div className='row'> 
+                <div className='row'>
                     <h6 style={{ marginTop: 5 }}>시간: {props.timestamp}</h6>
                 </div>
             </div>
@@ -63,7 +69,7 @@ export const ProposeList = props => {
                     <h5 style={{ marginLeft: 5, alignSelf: 'flex-end' }}>{props.value}</h5>
 
                 </div>
-                <div className='row'> 
+                <div className='row'>
                     <h6 style={{ marginTop: 5, flex: 0.5 }}>투표기간: {props.period}</h6>
                     <div style={{ marginTop: 5, textAlign: 'right', flex: 0.5 }}>
                         <h6 style={{ marginRight: 5 }}>작성자: {props.user}</h6>
