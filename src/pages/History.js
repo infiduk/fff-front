@@ -10,12 +10,12 @@ export default class History extends Component {
         super(props)
         this.state = {
             list: [],
-            id : this.props.match.params.id
+            id: this.props.match.params.id
         }
     }
 
     componentDidMount() {
-        this.history()
+        window.sessionStorage.getItem('name') ? this.history() : window.location.assign('/signin')
     }
 
     // 투표 히스토리 조회 API
@@ -31,10 +31,14 @@ export default class History extends Component {
                     'Cache': 'no-cache'
                 },
                 credentials: 'include',
-                body: JSON.stringify({'id': id})
+                body: JSON.stringify({ 'id': id })
             })
+
             const json = await res.json()
-            this.setState({ list: json.data })
+
+            res.status === 200
+                ? this.setState({ list: json.data })
+                : console.log(json.data.msg)
         } catch (err) {
             console.log(err)
         }

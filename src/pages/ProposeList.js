@@ -14,7 +14,7 @@ export default class Propose extends Component {
     }
 
     componentDidMount() {
-        this.propose()
+        window.sessionStorage.getItem('name') ? this.propose() : window.location.assign('/signin')
     }
 
     // 투표 제안 목록 조회 API
@@ -28,8 +28,12 @@ export default class Propose extends Component {
                 },
                 credentials: 'include',
             })
+
             const json = await res.json()
-            this.setState({ list: json })
+
+            res.status === 200
+                ? this.setState({ list: json })
+                : console.log('목록 조회에 실패하였습니다.')
         } catch (err) {
             console.log(err)
         }
@@ -38,7 +42,7 @@ export default class Propose extends Component {
     // 제안 추천 +1 API
     choice = async e => {
         try {
-            await fetch('http://ch-4ml.iptime.org:8080/post/recommend', {
+            const res = await fetch('http://ch-4ml.iptime.org:8080/post/recommend', {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',
@@ -46,10 +50,13 @@ export default class Propose extends Component {
                     'Cache': 'no-cache'
                 },
                 credentials: 'include',
-                body: JSON.stringify({'postId': e.target.name})
+                body: JSON.stringify({ 'postId': e.target.name })
             })
-            window.location.assign('/propose')
-        } catch(err) {
+
+            res.status === 200
+                ? window.location.assign('/propose')
+                : console.log('제안 추천에 실패하였습니다')
+        } catch (err) {
             console.log(err)
         }
     }

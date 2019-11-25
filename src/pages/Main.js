@@ -14,7 +14,7 @@ export default class Main extends Component {
     }
 
     componentDidMount() {
-        this.vote()
+        window.sessionStorage.getItem('name') ? this.vote() : window.location.assign('/signin')
     }
 
     // 투표 목록 조회 API
@@ -28,8 +28,12 @@ export default class Main extends Component {
                 },
                 credentials: 'include',
             })
+
             const json = await res.json()
-            this.setState({ list: json.data.votes })
+
+            res.status === 200
+                ? this.setState({ list: json.data.votes })
+                : console.log(json.data.msg)
         } catch (err) {
             console.log(err)
         }

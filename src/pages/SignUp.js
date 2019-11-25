@@ -26,30 +26,32 @@ export default class SignUp extends Component {
     sign = async e => {
         e.preventDefault()
 
-        const { name, pw, birth, gender } = this.state
+        const { name, pw, pwCheck, birth, gender } = this.state
 
-        // 비밀번호 체크 넣기
+        if (pw === pwCheck) {
+            let userInfo = {
+                'name': name,
+                'password': pw,
+                'birth': birth,
+                'gender': gender
+            }
 
-        let userInfo = {
-            'name': name,
-            'password': pw,
-            'birth': birth,
-            'gender': gender
-        }
-
-        try {
-            const res = await fetch('http://ch-4ml.iptime.org:8080/user', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(userInfo),
-            })
-            res.status === 200
-                ? window.location.assign('/signIn')
-                : console.log('실패')
-        } catch (err) {
-            console.log(err)
+            try {
+                const res = await fetch('http://ch-4ml.iptime.org:8080/user', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(userInfo),
+                })
+                res.status === 200
+                    ? window.location.assign('/signIn')
+                    : console.log('회원가입에 실패하였습니다.')
+            } catch (err) {
+                console.log(err)
+            }
+        } else {
+            console.log('비밀번호가 일치하지 않습니다.')
         }
     }
 

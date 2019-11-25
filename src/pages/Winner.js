@@ -13,7 +13,7 @@ export default class Winner extends Component {
     }
 
     componentDidMount() {
-        this.win()
+        window.sessionStorage.getItem('name') ? this.win() : window.location.assign('/signin')
     }
 
     // 당첨자 조회 API
@@ -29,10 +29,15 @@ export default class Winner extends Component {
                     'Cache': 'no-cache'
                 },
                 credentials: 'include',
-                body: JSON.stringify({'id': id})
+                body: JSON.stringify({ 'id': id })
             })
-            const json = await res.json()
-            this.setState({ winner: json.winner })
+
+            if (res.status === 200) {
+                const json = await res.json()
+                this.setState({ winner: json.winner })
+            } else {
+                console.log('우승자 조회에 실패하였습니다.')
+            }
         } catch (err) {
             console.log(err)
         }

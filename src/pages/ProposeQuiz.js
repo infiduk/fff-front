@@ -18,6 +18,10 @@ export default class ProposeQuiz extends Component {
         }
     }
 
+    componentDidMount() {
+        !(window.sessionStorage.getItem('name')) && window.location.assign('/')
+    }
+
     handleChange = e => {
         this.setState({ [e.target.name]: e.target.value })
     }
@@ -26,8 +30,6 @@ export default class ProposeQuiz extends Component {
         e.preventDefault()
 
         const { title, context, period, choice1, choice2 } = this.state
-
-        // 비밀번호 체크 넣기
 
         let proposeInfo = {
             'title': title,
@@ -38,7 +40,7 @@ export default class ProposeQuiz extends Component {
         }
 
         try {
-            await fetch('http://ch-4ml.iptime.org:8080/post', {
+            const res = await fetch('http://ch-4ml.iptime.org:8080/post', {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',
@@ -48,7 +50,10 @@ export default class ProposeQuiz extends Component {
                 credentials: 'include',
                 body: JSON.stringify(proposeInfo)
             })
-            window.location.assign('/propose')
+            
+            res.status === 200
+                ? window.location.assign('/propose')
+                : console.log('문제 제안에 실패하였습니다.')
         } catch (err) {
             console.log(err)
         }

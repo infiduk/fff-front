@@ -39,11 +39,17 @@ export default class SignIn extends Component {
                 credentials: 'include',
                 body: JSON.stringify(userInfo),
             })
+
             const json = await res.json()
-            window.sessionStorage.setItem('name', json.data.user.name)
-            window.sessionStorage.setItem('token', json.data.user.token)
-            window.sessionStorage.setItem('votes', json.data.user.votes)
-            window.location.assign('/')
+            
+            if (res.status === 200) {
+                window.sessionStorage.setItem('name', json.data.user.name)
+                window.sessionStorage.setItem('token', json.data.user.token)
+                window.sessionStorage.setItem('votes', json.data.user.votes)
+                window.location.assign('/')
+            } else {
+                console.log(json.msg)
+            }
         } catch (err) {
             console.log(err)
         }

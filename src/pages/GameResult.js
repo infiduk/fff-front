@@ -13,7 +13,7 @@ export default class GameResult extends Component {
     }
 
     componentDidMount() {
-        this.result()
+        window.sessionStorage.getItem('name') ? this.result() : window.location.assign('/signin')
     }
 
     // 투표 결과 조회 API
@@ -31,8 +31,13 @@ export default class GameResult extends Component {
                 credentials: 'include',
                 body: JSON.stringify({'id': id})
             })
-            const json = await res.json()
-            this.setState({ detail: json })
+            
+            if(res.status === 200) {
+                const json = await res.json()
+                this.setState({ detail: json })
+            } else {
+                console.log('상세 조회에 실패하였습니다.')
+            }
         } catch (err) {
             console.log(err)
         }

@@ -14,7 +14,7 @@ export default class Game extends Component {
     }
 
     componentDidMount() {
-        this.detail()
+        window.sessionStorage.getItem('name') ? this.detail() : window.location.assign('/signin')
     }
 
     // 투표 상세 조회 API
@@ -30,10 +30,15 @@ export default class Game extends Component {
                     'Cache': 'no-cache'
                 },
                 credentials: 'include',
-                body: JSON.stringify({'id': id}),
+                body: JSON.stringify({ 'id': id }),
             })
-            const json = await res.json()
-            this.setState({ detail: json })
+
+            if (res.status === 200) {
+                const json = await res.json()
+                this.setState({ detail: json })
+            } else {
+                console.log('상세 조회에 실패하였습니다.')
+            }
         } catch (err) {
             console.log(err)
         }
@@ -50,7 +55,6 @@ export default class Game extends Component {
             'choose': e.target.value
         }
 
-        console.log(voteInfo)
         try {
             this.setState({ isActive: true })
             const res = await fetch('http://ch-4ml.iptime.org:8080/vote/choose', {
@@ -63,10 +67,16 @@ export default class Game extends Component {
                 credentials: 'include',
                 body: JSON.stringify(voteInfo)
             })
+
             const json = await res.json()
-            window.sessionStorage.setItem('token', json.data.user.token)
-            window.sessionStorage.setItem('votes', json.data.user.votes)
-            window.location.assign('/')
+
+            if (res.status === 200) {
+                window.sessionStorage.setItem('token', json.data.user.token)
+                window.sessionStorage.setItem('votes', json.data.user.votes)
+                window.location.assign('/')
+            } else {
+                console.log(json.msg)
+            }
         } catch (err) {
             console.log(err)
         }
