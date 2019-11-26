@@ -1,13 +1,16 @@
 import React, { Component } from 'react'
 import LoadingOverlay from 'react-loading-overlay'
 
-import { SquareButton } from '../components/Button'
+import { SquareButton, FillButton } from '../components/Button'
+import { TokenModal } from '../components/Modal'
 
 export default class Game extends Component {
     constructor(props) {
         super(props)
         this.state = {
             isActive: false,
+            setShow: true,
+            token: 1,
             detail: [],
             id: this.props.match.params.id
         }
@@ -48,11 +51,12 @@ export default class Game extends Component {
     vote = async e => {
         this.setState({ [e.target.name]: e.target.value })
 
-        const { id } = this.state
+        const { id, token } = this.state
 
         let voteInfo = {
             'id': id,
-            'choose': e.target.value
+            'choose': e.target.value,
+            'token': token
         }
 
         try {
@@ -82,22 +86,38 @@ export default class Game extends Component {
         }
     }
 
+    setToken = e => {
+        this.setState({ token: e.target.value })
+    }
+
+    handleClose = e => {
+        e.preventDefault()
+        this.setState({ setShow: false })
+    }
+
+    handleShow = () => {
+        this.setState({ setShow: true })
+    }
+
     render() {
-        const { detail } = this.state
+        const { detail, setShow, token } = this.state
         return (
             <div>
+                <TokenModal
+                        show={setShow} onHide={this.handleClose} formHandleChange={this.setToken} btnOnClick={this.handleClose} />
                 <LoadingOverlay
                     active={this.state.isActive}
                     spinner
                     text='잠시만 기다려주세요..'
                 >
                     <div style={{ marginTop: 20, padding: 25 }}>
-                        <h2 style={{ textAlign: 'center', color: '#d8b1d6' }}>{detail.title}</h2>
+                    <h2 style={{ textAlign: 'center', color: '#d8b1d6' }}>{detail.title}</h2>
                         {this.state.detail.category === '0'
                             ? <h5 style={{ marginTop: 30, textAlign: 'center' }}>무료투표</h5>
                             : <h5 style={{ marginTop: 30, textAlign: 'center' }}>무료투표</h5>
                         }
                         <h5 style={{ textAlign: 'center' }}>{detail.end} 마감</h5>
+                        <h6 style={{ textAlign: 'center' }}>투표 횟수: {token}번</h6>
                         <div className='row' style={{ alignItems: 'center', justifyContent: 'center' }}>
                             <div style={{ marginTop: 20, marginBottom: 20, marginRight: 3 }}>
                                 <SquareButton onClick={this.vote} name='choose' label={`${detail.choice1}`} value={`${detail.choice1}`} />
@@ -107,6 +127,7 @@ export default class Game extends Component {
                             </div>
                         </div>
                         <h5 style={{ textAlign: 'center' }}>선택한 답이 과반 이상의 선택을 받았을 경우 추첨을 통해 상품을 드립니다.</h5>
+                        <FillButton type='button' onClick={this.handleShow} text='투표 횟수 변경' />
                     </div>
                 </LoadingOverlay>
             </div>

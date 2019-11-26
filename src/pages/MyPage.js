@@ -47,7 +47,7 @@ export default class MyPage extends Component {
                         <ListGroup style={{ marginLeft: 5, marginRight: 5 }}>
                             {list.map(list => {
                                 return (
-                                    <MyPageList key={list.toString()} title={list} />
+                                    <MyPageList key={list.toString()} title={list} href={`/gameResult/${list.id}`} />
                                 )
                             })}
                             <hr />

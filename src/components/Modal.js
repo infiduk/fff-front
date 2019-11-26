@@ -30,3 +30,32 @@ export const ReMatchModal = props => {
         </Modal>
     )
 }
+
+export const TokenModal = props => {
+    return (
+        <Modal show={props.show} onHide={props.onHide}>
+            <Modal.Header closeButton>
+                <Modal.Title>투표 횟수</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+                <b>아래 유의사항을 숙지하신 후 투표를 진행해주세요.</b>
+                <br />
+                <br />
+                - 1표 당 100토큰이 소모됩니다.
+                <br />
+                - 투표 및 토큰 사용에 제한은 없습니다. 자유롭게 투표하세요!
+                <br />
+                <br />
+                <b>사용할 티켓 수량을 입력해주세요.</b>
+                <Form style={{ padding: 25 }} onSubmit={props.formOnSubmit}>
+                    <Form.Group controlId='Ticket'>
+                        <Form.Control type='number' size='md' name='ticket' placeholder='몇 표를 행사하실건가요? ex) 2' onChange={props.formHandleChange} />
+                    </Form.Group>
+                    <Button type='submit' onClick={props.btnOnClick} style={{ padding: 10, backgroundColor: '#d8b1d6', borderColor: '#fff' }} block> 
+                        확인
+                    </Button>
+                </Form>
+            </Modal.Body>
+        </Modal>
+    )
+}

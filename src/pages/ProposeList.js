@@ -41,6 +41,7 @@ export default class Propose extends Component {
 
     // 제안 추천 +1 API
     choice = async e => {
+        e.preventDefault()
         try {
             const res = await fetch('http://ch-4ml.iptime.org:8080/post/recommend', {
                 method: 'POST',

@@ -15,7 +15,29 @@ export const MainList = props => {
                     <div style={{ marginTop: 5, textAlign: 'right', flex: 0.5 }}>
                         {props.category === '0'
                             ? <h6 style={{ marginRight: 5 }}>무료투표</h6>
-                            : <h6 style={{ marginRight: 5 }}>무료투표</h6>
+                            : <h6 style={{ marginRight: 5 }}>유료투표</h6>
+                        }
+                    </div>
+                </div>
+            </div>
+        </ListGroup.Item>
+    )
+}
+
+export const ToBeList = props => {
+    return (
+        <ListGroup.Item>
+            <div className='col'>
+                <h5 style={{ position: 'absolute', top: '30%', textAlign: 'center', marginTop: 10, marginBottom: 10 }}>해당 문제는 공개될 예정입니다.</h5>
+                <h5 style={{ color: '#d8b1d6', marginLeft: -20, filter: 'blur(5px)' }}>{props.choice1}</h5>
+                <h6 style={{ color: '#6e5b6c', marginLeft: -10, filter: 'blur(5px)' }}>VS</h6>
+                <h5 style={{ color: '#d8b1d6', marginLeft: -20, filter: 'blur(5px)', marginTop: -2 }}>{props.choice2}</h5>
+                <div className='row'>
+                    <h6 style={{ marginTop: 5, flex: 0.7, filter: 'blur(5px)' }}>{props.date} 마감</h6>
+                    <div style={{ marginTop: 5, textAlign: 'right', flex: 0.5 }}>
+                        {props.category === '0'
+                            ? <h6 style={{ marginRight: 5, filter: 'blur(5px)' }}>무료투표</h6>
+                            : <h6 style={{ marginRight: 5, filter: 'blur(5px)' }}>유료투표</h6>
                         }
                     </div>
                 </div>
@@ -28,13 +50,15 @@ export const ResultList = props => {
     return (
         <ListGroup.Item action href={props.href}>
             <div className='col'>
-                <h5 style={{ color: '#d8b1d6', marginLeft: -20 }}>{props.title}</h5>
+                <h5 style={{ color: '#d8b1d6', marginLeft: -20 }}>{props.choice1}</h5>
+                <h6 style={{ color: '#6e5b6c', marginLeft: -10 }}>VS</h6>
+                <h5 style={{ color: '#d8b1d6', marginLeft: -20, marginTop: -2 }}>{props.choice2}</h5>
                 <div className='row'>
                     <h6 style={{ marginTop: 5, flex: 0.7 }}>{props.winner}</h6>
                     <div style={{ marginTop: 5, textAlign: 'right', flex: 0.5 }}>
                         {props.category === '0'
                             ? <h6 style={{ marginRight: 5 }}>무료투표</h6>
-                            : <h6 style={{ marginRight: 5 }}>무료투표</h6>
+                            : <h6 style={{ marginRight: 5 }}>유료투표</h6>
                         }
                     </div>
                 </div>
